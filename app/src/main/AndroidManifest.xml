@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.example.perecastor.mosquitofinder10" >
+
+    <!-- permission for all-->
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <!-- permission to geolocalisation-->
+    <uses-permission android:name="android.permission.ACCESS_LOCATION_EXTRA_COMMANDS"/>
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
+    <uses-permission android:name="android.permission.ACCESS_GPS"/>
+    <uses-permission android:name="android.permission.ACCESS_ASSISTED_GPS"/>
+    <uses-permission android:name="android.permission.LOCATION"/>
+    <!-- permission to storage -->
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <!-- permission to camera -->
+    <uses-permission android:name="android.permission.CAMERA"/>
+
+
+    <application
+        android:allowBackup="true"
+        android:icon="@drawable/app_title"
+        android:label="@string/app_name"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme" >
+
+
+        <meta-data
+            android:name="com.parse.APPLICATION_ID"
+            android:value="OpDwJ4MEXMyg8OWQviJzyfwVwBtUZz2Rtgt2wZrl" />
+        <meta-data
+            android:name="com.parse.CLIENT_KEY"
+            android:value="wionXRZIAVTo1I5eCDtN4MTZjYWvVJJsoB09ayeM" />
+
+
+        <activity android:name=".MainActivity" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:name=".LocaliseActivity"
+            android:label="@string/localise_name"/>
+
+        <activity
+            android:name=".QuestionnaireActivity"
+            android:label="@string/questionnaire_name"/>
+
+        <activity
+            android:name=".ExperienceActivity"
+            android:label="@string/experience_name"/>
+
+        <activity
+            android:name=".IdentifyMainActivity"
+            android:label="@string/identification_name_1"/>
+
+        <activity
+            android:name=".IdentifyMouthpieceActivity"
+            android:label="@string/identification_name_2"/>
+
+        <activity
+            android:name=".IdentifyWingsActivity"
+            android:label="@string/identification_name_3"/>
+
+        <activity
+            android:name=".ExperienceIdentifyActivity"
+            android:label="@string/experience_identify_name"/>
+
+
+    </application>
+
+</manifest>

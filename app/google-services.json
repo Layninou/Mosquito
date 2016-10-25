@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "461623120558",
+    "firebase_url": "https://mosquitofinder.firebaseio.com",
+    "project_id": "mosquitofinder",
+    "storage_bucket": "mosquitofinder.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:461623120558:android:e11bd0aa30f8ab95",
+        "android_client_info": {
+          "package_name": "com.example.perecastor.mosquitofinder10"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "461623120558-riqb0jh7gndru10uf214e02m6f8ttvvg.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDqGujcxFcEkEUy2aQs619CWakMDmPfGpA"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

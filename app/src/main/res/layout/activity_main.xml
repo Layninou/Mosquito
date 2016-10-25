@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"  android:layout_height="match_parent"
+    android:paddingLeft="@dimen/activity_horizontal_margin"  android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin" android:paddingBottom="@dimen/activity_vertical_margin"
+    android:background="@drawable/backgroundshape"
+    tools:context=".MainActivity">
+
+
+    <TextView
+        android:id="@+id/title_up"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        android:layout_centerHorizontal="true"
+
+        android:text="@string/title_up"
+        android:textColor="#404040"
+        android:textStyle="bold"
+        android:textSize="32sp"/>
+
+    <TextView
+        android:id="@+id/title_down"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        android:layout_below="@+id/title_up"
+        android:layout_toRightOf="@+id/inexistant_text"
+
+        android:text="@string/title_down"
+        android:textColor="#404040"
+        android:textStyle="bold"
+        android:textSize="32sp"/>
+
+    <TextView
+        android:id="@+id/inexistant_text"
+        android:layout_width="wrap_content"
+        android:layout_height="100dp"
+        android:layout_centerInParent="true"/>
+
+    <Button
+        android:id="@+id/localise_button"
+
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+
+        android:layout_below="@+id/inexistant_text"
+
+        android:background="@drawable/buttonshape"
+
+        android:text="@string/localise"
+        android:textColor="#FFFFFF"
+        android:textSize="20sp"/>
+
+    <ImageView
+        android:id="@+id/title_image"
+
+        android:layout_width="240dp"
+        android:layout_height="240dp"
+
+        android:layout_above="@id/localise_button"
+        android:layout_centerHorizontal="true"
+
+        android:src="@drawable/app_title_png"/>
+
+    <Button
+        android:id="@+id/identify_button"
+
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+
+        android:layout_below="@id/localise_button"
+        android:layout_centerHorizontal="true"
+
+        android:background="@drawable/buttonshape"
+
+        android:text="@string/identify"
+        android:textColor="#FFFFFF"
+        android:textSize="20sp"/>
+
+    <Button
+        android:id="@+id/information_button"
+
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+
+        android:layout_below="@id/identify_button"
+        android:layout_centerHorizontal="true"
+
+        android:background="@drawable/buttonshape"
+
+        android:text="@string/information"
+        android:textColor="#FFFFFF"
+        android:textSize="20sp"/>
+
+</RelativeLayout>
