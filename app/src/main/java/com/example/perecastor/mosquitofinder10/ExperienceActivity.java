@@ -57,17 +57,18 @@ public class ExperienceActivity extends Activity {
 
         mFirebaseRef = new Firebase(FIREBASEQUIZZ);
 
-        Firebase firebaseQuizzLauncher = mFirebaseRef.child("Quizz");
+        Firebase firebaseQuizzLauncher = mFirebaseRef.child("Quizzs");
+        Firebase newFirebaseQuizzLauncher = firebaseQuizzLauncher.push();
 
-        firebaseQuizzLauncher.child("Quizz").child("Latitude").setValue(intent.getDoubleExtra(QuestionnaireActivity.LATITUDE_FINAL, 0));
-        firebaseQuizzLauncher.child("Quizz").child("Longitude").setValue(intent.getDoubleExtra(QuestionnaireActivity.LONGITUDE_FINAL, 0));
-        firebaseQuizzLauncher.child("Quizz").child("Mosquito").setValue(intent.getDoubleExtra(QuestionnaireActivity.MOSQUITO, 0));
-        firebaseQuizzLauncher.child("Quizz").child("Size").setValue(intent.getDoubleExtra(QuestionnaireActivity.SIZE, 0));
-        firebaseQuizzLauncher.child("Quizz").child("Daytime").setValue(intent.getIntExtra(QuestionnaireActivity.DAYTIME, 0));
-        firebaseQuizzLauncher.child("Quizz").child("Temperature").setValue(intent.getIntExtra(QuestionnaireActivity.TEMPERATURE, 0));
-        firebaseQuizzLauncher.child("Quizz").child("Bodywarm").setValue(intent.getIntExtra(QuestionnaireActivity.BODY_WATER, 0));
-        firebaseQuizzLauncher.child("Quizz").child("Inside_Outside").setValue(intent.getIntExtra(QuestionnaireActivity.INSIDE, 0));
-        firebaseQuizzLauncher.child("Quizz").child("Picture").setValue(intent.getIntExtra(QuestionnaireActivity.PICTURE, 0));
+        newFirebaseQuizzLauncher.child("Quizz").child("Latitude").setValue(intent.getDoubleExtra(QuestionnaireActivity.LATITUDE_FINAL, 0));
+        newFirebaseQuizzLauncher.child("Quizz").child("Longitude").setValue(intent.getDoubleExtra(QuestionnaireActivity.LONGITUDE_FINAL, 0));
+        newFirebaseQuizzLauncher.child("Quizz").child("Mosquito").setValue(intent.getDoubleExtra(QuestionnaireActivity.MOSQUITO, 0));
+        newFirebaseQuizzLauncher.child("Quizz").child("Size").setValue(intent.getDoubleExtra(QuestionnaireActivity.SIZE, 0));
+        newFirebaseQuizzLauncher.child("Quizz").child("Daytime").setValue(intent.getIntExtra(QuestionnaireActivity.DAYTIME, 0));
+        newFirebaseQuizzLauncher.child("Quizz").child("Temperature").setValue(intent.getIntExtra(QuestionnaireActivity.TEMPERATURE, 0));
+        newFirebaseQuizzLauncher.child("Quizz").child("Bodywarm").setValue(intent.getIntExtra(QuestionnaireActivity.BODY_WATER, 0));
+        newFirebaseQuizzLauncher.child("Quizz").child("Inside_Outside").setValue(intent.getIntExtra(QuestionnaireActivity.INSIDE, 0));
+        newFirebaseQuizzLauncher.child("Quizz").child("Picture").setValue(intent.getIntExtra(QuestionnaireActivity.PICTURE, 0));
 
     }
 

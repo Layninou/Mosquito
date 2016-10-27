@@ -47,11 +47,12 @@ public class ExperienceIdentifyActivity extends Activity {
 
         mFirebaseRef = new Firebase(FIREBASEIDENTIFICATION);
 
-        Firebase firebaseIdLauncher = mFirebaseRef.child("Identification");
+        Firebase firebaseIdLauncher = mFirebaseRef.child("Identifications");
+        Firebase newFirebaseIdLauncher = firebaseIdLauncher.push();
 
-        firebaseIdLauncher.child("Identification").child("Antennae").setValue(intent.getIntExtra(IdentifyMainActivity.ANTENNAE, 0));
-        firebaseIdLauncher.child("Identification").child("Mouthpiece").setValue(intent.getIntExtra(IdentifyMainActivity.MOUTHPIECE_ANTENNAE, 0));
-        firebaseIdLauncher.child("Identification").child("Wings").setValue(intent.getIntExtra(IdentifyMainActivity.WINGS_ANTENNAE, 0));
+        newFirebaseIdLauncher.child("Identification").child("Antennae").setValue(intent.getIntExtra(IdentifyMainActivity.ANTENNAE, 0));
+        newFirebaseIdLauncher.child("Identification").child("Mouthpiece").setValue(intent.getIntExtra(IdentifyMainActivity.MOUTHPIECE_ANTENNAE, 0));
+        newFirebaseIdLauncher.child("Identification").child("Wings").setValue(intent.getIntExtra(IdentifyMainActivity.WINGS_ANTENNAE, 0));
 
     }
 

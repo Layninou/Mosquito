@@ -13,6 +13,9 @@ import com.parse.Parse;
 import com.parse.ParseACL;
 import com.parse.ParseUser;
 
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Objects;
 
 
 public class MainActivity extends Activity {
@@ -77,8 +80,9 @@ public class MainActivity extends Activity {
 
             mFirebaseRef = new Firebase(FIREBASE);
 
-            Firebase testFirebaseLauncher = mFirebaseRef.child("testFb");
-            testFirebaseLauncher.child("testFb").setValue("testSucceeded");
+            //here we test the Database
+//            Firebase testFirebaseLauncher = mFirebaseRef.child("testFb");
+//            testFirebaseLauncher.push().child("testFb").setValue("testSucceeded");
 
             firebaseLauncher = false;
         }
