@@ -114,11 +114,12 @@ public class ExperienceIdentifyActivity extends Activity {
         //Intent, save data and ParseObject
         Intent iIdentify = getIntent();
 
+        //test the succes of the identification
         loctest = iIdentify.getIntExtra(IdentifyMainActivity.ANTENNAE, 0);
         if(loctest != 0)
         {
             Toast.makeText(getBaseContext(),
-                    "Identify successful ",
+                    "success",
                     Toast.LENGTH_LONG).show();
         }
 
@@ -130,9 +131,9 @@ public class ExperienceIdentifyActivity extends Activity {
 
         saveAllInFirebaseId(iIdentify);
 
-        Toast.makeText(getBaseContext(),
-                Boolean.toString(loopBoolean),
-                Toast.LENGTH_LONG).show();
+//        Toast.makeText(getBaseContext(),
+//                Boolean.toString(loopBoolean),
+//                Toast.LENGTH_LONG).show();
 
         if (!loopBoolean){
 

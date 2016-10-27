@@ -129,11 +129,12 @@ public class ExperienceActivity extends Activity {
 
         saveAllInFirebase(iQuestionnaire);
 
+        //Test the success of localate
         loctest = iQuestionnaire.getDoubleExtra(QuestionnaireActivity.LATITUDE_FINAL, 0);
         if(loctest != 0)
         {
             Toast.makeText(getBaseContext(),
-                    "Test successful",
+                    "success",
                     Toast.LENGTH_LONG).show();
         }
 
@@ -143,9 +144,9 @@ public class ExperienceActivity extends Activity {
         //Button set Text
         mButtonId.setText("Identification");
 
-        Toast.makeText(getBaseContext(),
-                Boolean.toString(loopBoolean),
-                Toast.LENGTH_LONG).show();
+//        Toast.makeText(getBaseContext(),
+//                Boolean.toString(loopBoolean),
+//                Toast.LENGTH_LONG).show();
 
         if (!loopBoolean){
             invisibility();

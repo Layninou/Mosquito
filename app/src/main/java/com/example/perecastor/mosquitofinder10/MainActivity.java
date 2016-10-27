@@ -80,8 +80,6 @@ public class MainActivity extends Activity {
             Firebase testFirebaseLauncher = mFirebaseRef.child("testFb");
             testFirebaseLauncher.child("testFb").setValue("testSucceeded");
 
-            Toast.makeText(getBaseContext(), "En construction", Toast.LENGTH_LONG).show();
-
             firebaseLauncher = false;
         }
 
