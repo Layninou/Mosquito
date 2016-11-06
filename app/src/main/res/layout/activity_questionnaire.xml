@@ -42,6 +42,8 @@
             android:text="@string/answer_question_1_a"
             android:textColor="#808080"
 
+            android:buttonTint="#7FDD4C"
+
             android:checked="true"/>
 
         <RadioButton
@@ -51,7 +53,9 @@
             android:layout_height="wrap_content"
 
             android:text="@string/answer_question_1_b"
-            android:textColor="#808080"/>
+            android:textColor="#808080"
+
+            android:buttonTint="#7FDD4C"/>
 
         <RadioButton
             android:id="@+id/radio_question_a_3"
@@ -60,7 +64,9 @@
             android:layout_height="wrap_content"
 
             android:text="@string/answer_question_1_c"
-            android:textColor="#808080"/>
+            android:textColor="#808080"
+
+            android:buttonTint="#7FDD4C"/>
 
         <RadioButton
             android:id="@+id/radio_question_a_4"
@@ -69,7 +75,9 @@
             android:layout_height="wrap_content"
 
             android:text="@string/answer_question_1_d"
-            android:textColor="#808080"/>
+            android:textColor="#808080"
+
+            android:buttonTint="#7FDD4C"/>
 
     </RadioGroup>
 
@@ -105,6 +113,8 @@
                 android:text="@string/answer_question_2_a"
                 android:textColor="#808080"
 
+                android:buttonTint="#7FDD4C"
+
                 android:checked="true"/>
 
             <RadioButton
@@ -114,7 +124,9 @@
                 android:layout_height="wrap_content"
 
                 android:text="@string/answer_question_2_b"
-                android:textColor="#808080"/>
+                android:textColor="#808080"
+
+                android:buttonTint="#7FDD4C"/>
 
             <RadioButton
                 android:id="@+id/radio_question_b_3"
@@ -123,7 +135,9 @@
                 android:layout_height="wrap_content"
 
                 android:text="@string/answer_question_2_c"
-                android:textColor="#808080"/>
+                android:textColor="#808080"
+
+                android:buttonTint="#7FDD4C"/>
 
     </RadioGroup>
 
@@ -221,7 +235,9 @@
             android:text="@string/answer_question_4_a"
             android:textColor="#808080"
 
-            android:checked="true"/>
+            android:checked="true"
+
+            android:buttonTint="#7FDD4C"/>
 
         <RadioButton
             android:id="@+id/radio_question_d_2"
@@ -230,7 +246,9 @@
             android:layout_height="wrap_content"
 
             android:text="@string/answer_question_4_b"
-            android:textColor="#808080"/>
+            android:textColor="#808080"
+
+            android:buttonTint="#7FDD4C"/>
 
         <RadioButton
             android:id="@+id/radio_question_d_3"
@@ -239,7 +257,9 @@
             android:layout_height="wrap_content"
 
             android:text="@string/answer_question_4_c"
-            android:textColor="#808080"/>
+            android:textColor="#808080"
+
+            android:buttonTint="#7FDD4C"/>
 
         <RadioButton
             android:id="@+id/radio_question_d_4"
@@ -248,7 +268,9 @@
             android:layout_height="wrap_content"
 
             android:text="@string/answer_question_4_d"
-            android:textColor="#808080"/>
+            android:textColor="#808080"
+
+            android:buttonTint="#7FDD4C"/>
 
     </RadioGroup>
 
@@ -282,7 +304,9 @@
             android:layout_height="wrap_content"
 
             android:text="@string/answer_question_5_a"
-            android:textColor="#808080"/>
+            android:textColor="#808080"
+
+            android:buttonTint="#7FDD4C"/>
 
         <RadioButton
             android:id="@+id/radio_question_e_2"
@@ -292,6 +316,8 @@
 
             android:text="@string/answer_question_5_b"
             android:textColor="#808080"
+
+            android:buttonTint="#7FDD4C"
 
             android:checked="true"/>
 
@@ -329,6 +355,8 @@
             android:text="@string/answer_question_6_a"
             android:textColor="#808080"
 
+            android:buttonTint="#7FDD4C"
+
             android:checked="true"/>
 
         <RadioButton
@@ -338,7 +366,9 @@
             android:layout_height="wrap_content"
 
             android:text="@string/answer_question_6_b"
-            android:textColor="#808080"/>
+            android:textColor="#808080"
+
+            android:buttonTint="#7FDD4C"/>
 
     </RadioGroup>
 
@@ -372,7 +402,9 @@
             android:layout_height="wrap_content"
 
             android:text="@string/answer_question_7_a"
-            android:textColor="#808080"/>
+            android:textColor="#808080"
+
+            android:buttonTint="#7FDD4C"/>
 
         <RadioButton
             android:id="@+id/radio_question_g_2"
@@ -382,6 +414,8 @@
 
             android:text="@string/answer_question_7_b"
             android:textColor="#808080"
+
+            android:buttonTint="#7FDD4C"
 
             android:checked="true"/>
 
