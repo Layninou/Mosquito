@@ -77,11 +77,6 @@ public class QuestionnaireActivity extends Activity {
     Bitmap Pics = null;
     byte[] dbPics = null;
     boolean picstake = false;
-    /**
-     * ATTENTION: This was auto-generated to implement the App Indexing API.
-     * See https://g.co/AppIndexing/AndroidStudio for more information.
-     */
-    private GoogleApiClient client;
 
     /*
     *
