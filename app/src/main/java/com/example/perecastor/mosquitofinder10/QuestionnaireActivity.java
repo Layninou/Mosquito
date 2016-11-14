@@ -4,17 +4,31 @@ import android.app.Activity;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.net.Uri;
 import android.os.Bundle;
+import android.os.storage.StorageManager;
 import android.provider.MediaStore;
+import android.support.annotation.NonNull;
+import android.util.Base64;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CompoundButton;
+import android.widget.ImageView;
 import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.perecastor.mosquitofinder10.R;
+import com.firebase.client.Firebase;
+import com.google.android.gms.common.api.GoogleApiClient;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.StorageReference;
+import com.google.firebase.storage.UploadTask;
 
+import java.io.ByteArrayOutputStream;
 import java.util.Calendar;
 
 public class QuestionnaireActivity extends Activity {
@@ -43,21 +57,31 @@ public class QuestionnaireActivity extends Activity {
     int picture;
 
     //Intent Attribut
-    public final static String LATITUDE_FINAL   = "Latitude";
-    public final static String LONGITUDE_FINAL  = "Longitude";
-    public final static String MOSQUITO   = "Mosquito";
-    public final static String SIZE   = "Size";
-    public final static String DAYTIME  = "Time";
-    public final static String TEMPERATURE   = "Temperature";
-    public final static String BODY_WATER  = "Body water";
+    public final static String LATITUDE_FINAL = "Latitude";
+    public final static String LONGITUDE_FINAL = "Longitude";
+    public final static String MOSQUITO = "Mosquito";
+    public final static String SIZE = "Size";
+    public final static String DAYTIME = "Time";
+    public final static String TEMPERATURE = "Temperature";
+    public final static String BODY_WATER = "Body water";
     public final static String INSIDE = "inside_outside";
-    public final static String PICTURE   = "picture";
+    public final static String PICTURE = "picture";
+
+    //Firebase
+    public static final String FIREBASESTORAGE = "gs://mosquitofinder.appspot.com";
+    public static final String FIREBASEPICTURE = "https://mosquitofinder.firebaseio.com/";
+    private Firebase mFirebaseRef;
 
     //Image Attribut
-    static  final int REQUEST_IMAGE_CAPTURE = 1;
+    static final int REQUEST_IMAGE_CAPTURE = 1;
     Bitmap Pics = null;
     byte[] dbPics = null;
     boolean picstake = false;
+    /**
+     * ATTENTION: This was auto-generated to implement the App Indexing API.
+     * See https://g.co/AppIndexing/AndroidStudio for more information.
+     */
+    private GoogleApiClient client;
 
     /*
     *
@@ -67,22 +91,42 @@ public class QuestionnaireActivity extends Activity {
     * */
 
     //Check if there is a camera on the mobile
-    public boolean hasCamera(){
+    public boolean hasCamera() {
 
         return getPackageManager().hasSystemFeature(PackageManager.FEATURE_CAMERA_ANY);
     }
 
     //Launch the camera as an intent
-    public void launchCamera(View view){
+    public void launchCamera(View view) {
 
-        Intent  camIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+        Intent camIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
         startActivityForResult(camIntent, REQUEST_IMAGE_CAPTURE);
     }
 
-    public void launchCamera(){
+    public void launchCamera() {
 
-        Intent  camIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+        Intent camIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
         startActivityForResult(camIntent, REQUEST_IMAGE_CAPTURE);
+    }
+
+    //Store in Firebase
+    public void SavePicsInFirebase() {
+
+        //test firebase
+        Firebase.setAndroidContext(this);
+
+        mFirebaseRef = new Firebase(FIREBASEPICTURE);
+
+        Firebase firebasePicsLauncher = mFirebaseRef.child("Pictures");
+        Firebase newFirebasePicsLauncher = firebasePicsLauncher.push();
+
+        ByteArrayOutputStream baos = new ByteArrayOutputStream();
+        Pics.compress(Bitmap.CompressFormat.JPEG, 100, baos);
+        byte[] bytes = baos.toByteArray();
+        String base64Image = Base64.encodeToString(bytes, Base64.DEFAULT);
+
+        newFirebasePicsLauncher.child("Picture").setValue(base64Image);
+
     }
 
 
@@ -90,13 +134,64 @@ public class QuestionnaireActivity extends Activity {
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
 
-        if(requestCode == REQUEST_IMAGE_CAPTURE && resultCode == RESULT_OK)
-        {
+        if (requestCode == REQUEST_IMAGE_CAPTURE && resultCode == RESULT_OK) {
+
             //take the photo
             Bundle extras = data.getExtras();
             Pics = (Bitmap) extras.get("data");
-            //Test DBB
-            dbPics = DbBitmapUtility.getBytes(Pics);
+/*            //Test DBB
+            dbPics = DbBitmapUtility.getBytes(Pics);*/
+
+            //Send to the Storage
+            FirebaseStorage storage = FirebaseStorage.getInstance();
+            StorageReference storageRef = storage.getReferenceFromUrl("gs://mosquitofinder.appspot.com");
+            StorageReference thisStorage = storageRef.child("pictures/mosquitoes.jpg");
+
+            //Test One
+            ByteArrayOutputStream baos = new ByteArrayOutputStream();
+            Pics.compress(Bitmap.CompressFormat.JPEG, 25, baos);
+            byte[] dataPics = baos.toByteArray();
+
+            UploadTask uploadTask = thisStorage.putBytes(dataPics);
+            uploadTask.addOnFailureListener(new OnFailureListener() {
+                @Override
+                public void onFailure(@NonNull Exception e) {
+                    //Handle Unsuccesful uploads
+
+                    Toast.makeText(getBaseContext(),
+                            "error, can't send Byte data to the storage",
+                            Toast.LENGTH_LONG).show();
+                }
+            }).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
+                @Override
+                public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
+                    Uri downloadUrl = taskSnapshot.getDownloadUrl();
+
+                    Toast.makeText(getBaseContext(),
+                            "you send data Byte to the server",
+                            Toast.LENGTH_LONG).show();
+                }
+            });
+
+            //Test second
+            Uri uri = data.getData();
+            StorageReference filepath = storageRef.child("Photo").child(uri.getLastPathSegment());
+            filepath.putFile(uri).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
+                @Override
+                public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
+                    Toast.makeText(getBaseContext(),
+                            "You send a data file to the server",
+                            Toast.LENGTH_LONG).show();
+                }
+            }).addOnFailureListener(new OnFailureListener() {
+                @Override
+                public void onFailure(@NonNull Exception e) {
+                    Toast.makeText(getBaseContext(),
+                            "error, can't send files to the storage",
+                            Toast.LENGTH_LONG).show();
+                }
+            });
+
             picstake = true;
         }
     }
@@ -109,47 +204,46 @@ public class QuestionnaireActivity extends Activity {
     * */
 
     //How many mosquito
-    public void questionASolution()
-    {
-        if(mRadioQuestionA.getCheckedRadioButtonId() == R.id.radio_question_a_1){
+    public void questionASolution() {
+        if (mRadioQuestionA.getCheckedRadioButtonId() == R.id.radio_question_a_1) {
             mosquitoFound = 1;
         }
-        if(mRadioQuestionA.getCheckedRadioButtonId() == R.id.radio_question_a_2){
+        if (mRadioQuestionA.getCheckedRadioButtonId() == R.id.radio_question_a_2) {
             mosquitoFound = 2;
         }
-        if(mRadioQuestionA.getCheckedRadioButtonId() == R.id.radio_question_a_3){
+        if (mRadioQuestionA.getCheckedRadioButtonId() == R.id.radio_question_a_3) {
             mosquitoFound = 3;
         }
-        if(mRadioQuestionA.getCheckedRadioButtonId() == R.id.radio_question_a_4){
+        if (mRadioQuestionA.getCheckedRadioButtonId() == R.id.radio_question_a_4) {
             mosquitoFound = 4;
         }
     }
+
     //Size
-    public void questionBSolution()
-    {
-        if(mRadioQuestionB.getCheckedRadioButtonId() == R.id.radio_question_b_1){
+    public void questionBSolution() {
+        if (mRadioQuestionB.getCheckedRadioButtonId() == R.id.radio_question_b_1) {
             size = 1;
         }
-        if(mRadioQuestionB.getCheckedRadioButtonId() == R.id.radio_question_b_2){
+        if (mRadioQuestionB.getCheckedRadioButtonId() == R.id.radio_question_b_2) {
             size = 2;
         }
-        if(mRadioQuestionB.getCheckedRadioButtonId() == R.id.radio_question_b_3) {
+        if (mRadioQuestionB.getCheckedRadioButtonId() == R.id.radio_question_b_3) {
             size = 3;
         }
     }
+
     //Hours
-    public void questionCSolution()
-    {
+    public void questionCSolution() {
         Calendar rightNow = Calendar.getInstance();
         dayTime = rightNow.get(Calendar.HOUR_OF_DAY);
     }
+
     //Temperature
-    public void questionDSolution()
-    {
-        if(mRadioQuestionD.getCheckedRadioButtonId() == R.id.radio_question_d_1){
+    public void questionDSolution() {
+        if (mRadioQuestionD.getCheckedRadioButtonId() == R.id.radio_question_d_1) {
             temperature = 1;
         }
-        if(mRadioQuestionD.getCheckedRadioButtonId() == R.id.radio_question_d_2){
+        if (mRadioQuestionD.getCheckedRadioButtonId() == R.id.radio_question_d_2) {
             temperature = 2;
         }
         if(mRadioQuestionD.getCheckedRadioButtonId() == R.id.radio_question_d_3){
@@ -159,19 +253,19 @@ public class QuestionnaireActivity extends Activity {
             temperature = 4;
         }
     }
+
     //Body Water
-    public void questionESolution()
-    {
-        if(mRadioQuestionE.getCheckedRadioButtonId() == R.id.radio_question_e_1) {
+    public void questionESolution() {
+        if (mRadioQuestionE.getCheckedRadioButtonId() == R.id.radio_question_e_1) {
             bodyWater = 1;
         }
-        if(mRadioQuestionE.getCheckedRadioButtonId() == R.id.radio_question_e_2) {
+        if (mRadioQuestionE.getCheckedRadioButtonId() == R.id.radio_question_e_2) {
             bodyWater = 2;
         }
     }
+
     //Inside
-    public void questionFSolution()
-    {
+    public void questionFSolution() {
         if(mRadioQuestionF.getCheckedRadioButtonId() == R.id.radio_question_f_1) {
             inside = 1;
         }
@@ -179,13 +273,13 @@ public class QuestionnaireActivity extends Activity {
             inside = 2;
         }
     }
+
     //Picture
-    public void questionGSolution()
-    {
-        if(mRadioQuestionG.getCheckedRadioButtonId() == R.id.radio_question_g_1) {
+    public void questionGSolution() {
+        if (mRadioQuestionG.getCheckedRadioButtonId() == R.id.radio_question_g_1) {
             picture = 1;
         }
-        if(mRadioQuestionG.getCheckedRadioButtonId() == R.id.radio_question_g_2) {
+        if (mRadioQuestionG.getCheckedRadioButtonId() == R.id.radio_question_g_2) {
             picture = 2;
         }
     }
@@ -212,16 +306,15 @@ public class QuestionnaireActivity extends Activity {
 
             //Pass the data
             Intent experienceActivity = new Intent(QuestionnaireActivity.this, ExperienceActivity.class);
-            experienceActivity.putExtra(LATITUDE_FINAL,sLat);
-            experienceActivity.putExtra(LONGITUDE_FINAL,sLon);
-            experienceActivity.putExtra(MOSQUITO,mosquitoFound);
-            experienceActivity.putExtra(SIZE,size);
-            experienceActivity.putExtra(DAYTIME,dayTime);
-            experienceActivity.putExtra(TEMPERATURE,temperature);
-            experienceActivity.putExtra(BODY_WATER,bodyWater);
+            experienceActivity.putExtra(LATITUDE_FINAL, sLat);
+            experienceActivity.putExtra(LONGITUDE_FINAL, sLon);
+            experienceActivity.putExtra(MOSQUITO, mosquitoFound);
+            experienceActivity.putExtra(SIZE, size);
+            experienceActivity.putExtra(DAYTIME, dayTime);
+            experienceActivity.putExtra(TEMPERATURE, temperature);
+            experienceActivity.putExtra(BODY_WATER, bodyWater);
             experienceActivity.putExtra(INSIDE, inside);
             experienceActivity.putExtra(PICTURE, picture);
-
 
 
             //Launch the Camera
@@ -229,6 +322,7 @@ public class QuestionnaireActivity extends Activity {
             //    launchCamera(v);
             //}
 
+            SavePicsInFirebase();
 
             startActivity(experienceActivity);
 
@@ -264,21 +358,21 @@ public class QuestionnaireActivity extends Activity {
     * */
 
     @Override
-    public void onCreate(Bundle savedInstanceState){
+    public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_questionnaire);
 
         //set the attribut id
         mButtonReturnQuest = (Button) findViewById(R.id.question_return_id);
-        mButtonAccept      = (Button) findViewById(R.id.question_next_id);
-        mRadioQuestionA    = (RadioGroup) findViewById(R.id.group_question_a);
-        mRadioQuestionB    = (RadioGroup) findViewById(R.id.group_question_b);
+        mButtonAccept = (Button) findViewById(R.id.question_next_id);
+        mRadioQuestionA = (RadioGroup) findViewById(R.id.group_question_a);
+        mRadioQuestionB = (RadioGroup) findViewById(R.id.group_question_b);
         //mRadioQuestionC    = (RadioGroup) findViewById(R.id.group_question_c);
-        mRadioQuestionD    = (RadioGroup) findViewById(R.id.group_question_d);
-        mRadioQuestionE    = (RadioGroup) findViewById(R.id.group_question_e);
-        mRadioQuestionF    = (RadioGroup) findViewById(R.id.group_question_f);
-        mRadioQuestionG    = (RadioGroup) findViewById(R.id.group_question_g);
-        mQuestionC         = (TextView) findViewById(R.id.group_question_c);
+        mRadioQuestionD = (RadioGroup) findViewById(R.id.group_question_d);
+        mRadioQuestionE = (RadioGroup) findViewById(R.id.group_question_e);
+        mRadioQuestionF = (RadioGroup) findViewById(R.id.group_question_f);
+        mRadioQuestionG = (RadioGroup) findViewById(R.id.group_question_g);
+        mQuestionC = (TextView) findViewById(R.id.group_question_c);
 
         //Intent recuperation
         Intent i = getIntent();
@@ -286,7 +380,7 @@ public class QuestionnaireActivity extends Activity {
         sLat = i.getDoubleExtra(LocaliseActivity.LATITUDE, 0);
         sLon = i.getDoubleExtra(LocaliseActivity.LONGITUDE, 0);
 
-        if(sLat == 0 && sLon == 0){
+        if (sLat == 0 && sLon == 0) {
             Toast.makeText(getBaseContext(),
                     "It seems an error occur in Localisation",
                     Toast.LENGTH_LONG).show();
@@ -304,4 +398,6 @@ public class QuestionnaireActivity extends Activity {
         mRadioQuestionG.setOnCheckedChangeListener(QuestGChanged);
 
     }
+
+
 }
