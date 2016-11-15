@@ -45,6 +45,10 @@
         </activity>
 
         <activity
+            android:name=".InformationActivity"
+            android:label="@string/information_name"/>
+
+        <activity
             android:name=".LocaliseActivity"
             android:label="@string/localise_name"/>
 
@@ -70,7 +74,9 @@
 
         <activity
             android:name=".ExperienceIdentifyActivity"
-            android:label="@string/experience_identify_name"/><!-- ATTENTION: This was auto-generated to add Google Play services to your project for
+            android:label="@string/experience_identify_name"/>
+
+        <!-- ATTENTION: This was auto-generated to add Google Play services to your project for
      App Indexing.  See https://g.co/AppIndexing/AndroidStudio for more information. -->
         <meta-data
             android:name="com.google.android.gms.version"

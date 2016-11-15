@@ -4,7 +4,7 @@
     android:layout_height="match_parent"
     android:background="@drawable/backgroundshape">
 
-    <TextView
+<!--    <TextView
         android:id="@+id/information_text"
 
         android:layout_width="wrap_content"
@@ -15,6 +15,217 @@
         android:gravity="center"
 
         android:text="@string/text_information"
+        android:textColor="#000000"
+        android:textSize="20sp"/>
+        -->
+
+    <TextView
+        android:id="@+id/information_text_1"
+
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        android:layout_centerHorizontal="true"
+        android:layout_alignParentTop="true"
+
+        android:gravity="center"
+
+        android:text="@string/text_information_1"
+        android:textColor="#000000"
+        android:textSize="20sp"/>
+
+    <TextView
+        android:id="@+id/information_text_2"
+
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/information_text_1"
+
+        android:gravity="center"
+
+        android:text="@string/text_information_2"
+        android:textColor="#000000"
+        android:textSize="20sp"/>
+
+    <TextView
+        android:id="@+id/information_text_3"
+
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/information_text_2"
+
+        android:gravity="center"
+
+        android:text="@string/text_information_3"
+        android:textColor="#000000"
+        android:textSize="20sp"/>
+
+    <TextView
+        android:id="@+id/information_text_4"
+
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/information_text_3"
+
+        android:gravity="center"
+
+        android:text="@string/text_information_4"
+        android:textColor="#000000"
+        android:textSize="20sp"/>
+
+    <TextView
+        android:id="@+id/information_text_5"
+
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/information_text_4"
+
+        android:gravity="center"
+
+        android:text="@string/text_information_5"
+        android:textColor="#000000"
+        android:textSize="20sp"/>
+
+    <TextView
+        android:id="@+id/information_text_6"
+
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/information_text_5"
+
+        android:gravity="center"
+
+        android:text=" "
+        android:textColor="#000000"
+        android:textSize="10sp"/>
+
+    <TextView
+        android:id="@+id/information_text_7"
+
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/information_text_6"
+
+        android:gravity="center"
+
+        android:text="@string/text_information_7"
+        android:textColor="#000000"
+        android:textSize="20sp"/>
+
+    <TextView
+        android:id="@+id/information_text_8"
+
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/information_text_7"
+
+        android:gravity="center"
+
+        android:text="@string/text_information_8"
+        android:textColor="#000000"
+        android:textSize="20sp"/>
+
+    <TextView
+        android:id="@+id/information_text_9"
+
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/information_text_8"
+
+        android:gravity="center"
+
+        android:text=" "
+        android:textColor="#000000"
+        android:textSize="20sp"/>
+
+    <TextView
+        android:id="@+id/information_text_10"
+
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/information_text_9"
+
+        android:gravity="center"
+
+        android:text="@string/text_information_10"
+        android:textColor="#000000"
+        android:textSize="20sp"/>
+
+    <TextView
+        android:id="@+id/information_text_11"
+
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/information_text_10"
+
+        android:gravity="center"
+
+        android:text=" "
+        android:textColor="#000000"
+        android:textSize="10sp"/>
+
+    <TextView
+        android:id="@+id/information_text_12"
+
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/information_text_11"
+
+        android:gravity="center"
+
+        android:text=" "
+        android:textColor="#000000"
+        android:textSize="10sp"/>
+
+    <TextView
+        android:id="@+id/information_text_13"
+
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/information_text_12"
+
+        android:gravity="center"
+
+        android:text="@string/text_information_13"
+        android:textColor="#000000"
+        android:textSize="20sp"/>
+
+    <TextView
+        android:id="@+id/information_text_14"
+
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/information_text_13"
+
+        android:gravity="center"
+
+        android:text="@string/text_information_14"
         android:textColor="#000000"
         android:textSize="20sp"/>
 

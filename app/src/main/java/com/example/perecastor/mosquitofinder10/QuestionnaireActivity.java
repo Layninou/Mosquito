@@ -317,7 +317,9 @@ public class QuestionnaireActivity extends Activity {
             //    launchCamera(v);
             //}
 
-            SavePicsInFirebase();
+            if(picstake) {
+                SavePicsInFirebase();
+            }
 
             startActivity(experienceActivity);
 
