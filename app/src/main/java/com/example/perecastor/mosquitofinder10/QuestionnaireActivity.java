@@ -71,6 +71,7 @@ public class QuestionnaireActivity extends Activity {
     public static final String FIREBASESTORAGE = "gs://mosquitofinder.appspot.com";
     public static final String FIREBASEPICTURE = "https://mosquitofinder.firebaseio.com/";
     private Firebase mFirebaseRef;
+    public String uidFirebase;
 
     //Image Attribut
     static final int REQUEST_IMAGE_CAPTURE = 1;
@@ -115,6 +116,8 @@ public class QuestionnaireActivity extends Activity {
         Firebase firebasePicsLauncher = mFirebaseRef.child("Pictures");
         Firebase newFirebasePicsLauncher = firebasePicsLauncher.push();
 
+        uidFirebase = newFirebasePicsLauncher.getKey();
+
         ByteArrayOutputStream baos = new ByteArrayOutputStream();
         Pics.compress(Bitmap.CompressFormat.JPEG, 100, baos);
         byte[] bytes = baos.toByteArray();
@@ -137,10 +140,16 @@ public class QuestionnaireActivity extends Activity {
 /*            //Test DBB
             dbPics = DbBitmapUtility.getBytes(Pics);*/
 
+            //Save in firebase database
+            picstake = true;
+            if(picstake) {
+                SavePicsInFirebase();
+            }
+
             //Send to the Storage
             FirebaseStorage storage = FirebaseStorage.getInstance();
             StorageReference storageRef = storage.getReferenceFromUrl("gs://mosquitofinder.appspot.com");
-            StorageReference thisStorage = storageRef.child("pictures/mosquitoes.jpg");
+            StorageReference thisStorage = storageRef.child(uidFirebase).child("pictures/mosquitoes.jpg");
 
             //Test One
             ByteArrayOutputStream baos = new ByteArrayOutputStream();
@@ -168,26 +177,7 @@ public class QuestionnaireActivity extends Activity {
                 }
             });
 
-            //Test second
-            Uri uri = data.getData();
-            StorageReference filepath = storageRef.child("Photo").child(uri.getLastPathSegment());
-            filepath.putFile(uri).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
-                @Override
-                public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
-                    Toast.makeText(getBaseContext(),
-                            "You send a data file to the server",
-                            Toast.LENGTH_LONG).show();
-                }
-            }).addOnFailureListener(new OnFailureListener() {
-                @Override
-                public void onFailure(@NonNull Exception e) {
-                    Toast.makeText(getBaseContext(),
-                            "error, can't send files to the storage",
-                            Toast.LENGTH_LONG).show();
-                }
-            });
 
-            picstake = true;
         }
     }
 
@@ -318,7 +308,7 @@ public class QuestionnaireActivity extends Activity {
             //}
 
             if(picstake) {
-                SavePicsInFirebase();
+                //here send the data to create the link between the picture, and after the identification.
             }
 
             startActivity(experienceActivity);

@@ -36,7 +36,9 @@
             android:value="wionXRZIAVTo1I5eCDtN4MTZjYWvVJJsoB09ayeM" />
 
 
-        <activity android:name=".MainActivity" >
+        <activity
+            android:name=".MainActivity"
+            android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -46,34 +48,42 @@
 
         <activity
             android:name=".InformationActivity"
+            android:screenOrientation="portrait"
             android:label="@string/information_name"/>
 
         <activity
             android:name=".LocaliseActivity"
+            android:screenOrientation="portrait"
             android:label="@string/localise_name"/>
 
         <activity
             android:name=".QuestionnaireActivity"
+            android:screenOrientation="portrait"
             android:label="@string/questionnaire_name"/>
 
         <activity
             android:name=".ExperienceActivity"
+            android:screenOrientation="portrait"
             android:label="@string/experience_name"/>
 
         <activity
             android:name=".IdentifyMainActivity"
+            android:screenOrientation="portrait"
             android:label="@string/identification_name_1"/>
 
         <activity
             android:name=".IdentifyMouthpieceActivity"
+            android:screenOrientation="portrait"
             android:label="@string/identification_name_2"/>
 
         <activity
             android:name=".IdentifyWingsActivity"
+            android:screenOrientation="portrait"
             android:label="@string/identification_name_3"/>
 
         <activity
             android:name=".ExperienceIdentifyActivity"
+            android:screenOrientation="portrait"
             android:label="@string/experience_identify_name"/>
 
         <!-- ATTENTION: This was auto-generated to add Google Play services to your project for

@@ -78,11 +78,17 @@ public class MainActivity extends Activity {
 
             Firebase.setAndroidContext(this);
 
-            mFirebaseRef = new Firebase(FIREBASE);
-
-            //here we test the Database
+//            mFirebaseRef = new Firebase(FIREBASE);
+//
+//            //here we test the Database
 //            Firebase testFirebaseLauncher = mFirebaseRef.child("testFb");
-//            testFirebaseLauncher.push().child("testFb").setValue("testSucceeded");
+//            Firebase testKey = testFirebaseLauncher.push();
+//            String theUUID = testKey.getKey();
+//            testKey.setValue("test ID");
+//
+//            Toast.makeText(getBaseContext(),
+//                    "normalement l'id est : " +theUUID,
+//                    Toast.LENGTH_LONG).show();
 
             firebaseLauncher = false;
         }
