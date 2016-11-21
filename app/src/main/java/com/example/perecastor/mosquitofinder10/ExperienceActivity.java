@@ -1,56 +1,37 @@
 package com.example.perecastor.mosquitofinder10;
 
 import android.app.Activity;
-import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Looper;
 import android.view.View;
 import android.widget.Button;
-import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.perecastor.mosquitofinder10.R;
 import com.firebase.client.Firebase;
-import com.parse.Parse;
-import com.parse.ParseACL;
-import com.parse.ParseObject;
-import com.parse.ParseUser;
 
 /**
  * Created by Père Castor on 27/12/2015.
  */
+
 public class ExperienceActivity extends Activity {
 
-    Button mButtonSave = null;
+    //Attribut button
     Button mButtonFinish = null;
     Button mButtonId = null;
 
-    ParseObject mosquitoData;
-
+    //Instance boolean to know if we come from an identify action
     boolean loopBoolean = LoopBoolean.getmInstance().getLoopBoolean();
 
+    //Firebase attribut
     public static final String FIREBASEQUIZZ = "https://mosquitofinder.firebaseio.com/";
     private Firebase mFirebaseRef;
+    private String IDFirebase;
 
+    //Show if data work
     double loctest = 0;
 
-    public ParseObject saveAllInParseByLocalisation(Intent intent){
-        ParseObject data = new ParseObject("MosquitoFindData");
-
-        data.put("Latitude", intent.getDoubleExtra(QuestionnaireActivity.LATITUDE_FINAL,0));
-        data.put("Longitude", intent.getDoubleExtra(QuestionnaireActivity.LONGITUDE_FINAL, 0));
-        data.put("Mosquito", intent.getIntExtra(QuestionnaireActivity.MOSQUITO, 0));
-        data.put("Size", intent.getIntExtra(QuestionnaireActivity.SIZE, 0));
-        data.put("Daytime", intent.getIntExtra(QuestionnaireActivity.DAYTIME, 0));
-        data.put("Temperature", intent.getIntExtra(QuestionnaireActivity.TEMPERATURE, 0));
-        data.put("BodyWarm", intent.getIntExtra(QuestionnaireActivity.BODY_WATER, 0));
-        data.put("Inside_Outside", intent.getIntExtra(QuestionnaireActivity.INSIDE, 0));
-        data.put("Picture", intent.getIntExtra(QuestionnaireActivity.PICTURE, 0));
-        data.put("Identify", 0);
-
-        return  data;
-    };
-
+    //Save on Firebase
     public void saveAllInFirebase(Intent intent){
 
         Firebase.setAndroidContext(this);
@@ -60,6 +41,8 @@ public class ExperienceActivity extends Activity {
         Firebase firebaseQuizzLauncher = mFirebaseRef.child("Quizzs");
         Firebase newFirebaseQuizzLauncher = firebaseQuizzLauncher.push();
 
+        IDFirebase = newFirebaseQuizzLauncher.getKey();
+
         newFirebaseQuizzLauncher.child("Quizz").child("Latitude").setValue(intent.getDoubleExtra(QuestionnaireActivity.LATITUDE_FINAL, 0));
         newFirebaseQuizzLauncher.child("Quizz").child("Longitude").setValue(intent.getDoubleExtra(QuestionnaireActivity.LONGITUDE_FINAL, 0));
         newFirebaseQuizzLauncher.child("Quizz").child("Mosquito").setValue(intent.getDoubleExtra(QuestionnaireActivity.MOSQUITO, 0));
@@ -67,87 +50,82 @@ public class ExperienceActivity extends Activity {
         newFirebaseQuizzLauncher.child("Quizz").child("Daytime").setValue(intent.getIntExtra(QuestionnaireActivity.DAYTIME, 0));
         newFirebaseQuizzLauncher.child("Quizz").child("Temperature").setValue(intent.getIntExtra(QuestionnaireActivity.TEMPERATURE, 0));
         newFirebaseQuizzLauncher.child("Quizz").child("Bodywarm").setValue(intent.getIntExtra(QuestionnaireActivity.BODY_WATER, 0));
-        newFirebaseQuizzLauncher.child("Quizz").child("Inside_Outside").setValue(intent.getIntExtra(QuestionnaireActivity.INSIDE, 0));
+        newFirebaseQuizzLauncher.child("Quizz").child("Inside_or_Outside").setValue(intent.getIntExtra(QuestionnaireActivity.INSIDE, 0));
         newFirebaseQuizzLauncher.child("Quizz").child("Picture").setValue(intent.getIntExtra(QuestionnaireActivity.PICTURE, 0));
+        newFirebaseQuizzLauncher.child("Quizz").child("PictureID").setValue(intent.getStringExtra(QuestionnaireActivity.PICTUREID));
+
+        //Add the Id if it is a loop
+        if(!LoopBoolean.getmInstance().getLoopBoolean()){
+            newFirebaseQuizzLauncher.child("Quizz").child("ID_of_Identification").setValue(LoopBoolean.getmInstance().getLoopId());
+        }
 
     }
 
-    public View.OnClickListener btnSaveClick = new View.OnClickListener() {
-        @Override
-        public void onClick(View v) {
-            mosquitoData.saveInBackground();
+    //Button Listener
 
-
-            Toast.makeText(getBaseContext(),
-                    "You save data on the cloud",
-                    Toast.LENGTH_LONG).show();
-        }
-    };
-
+    //Finish Button
     public View.OnClickListener btnFinishClick = new View.OnClickListener() {
         @Override
         public void onClick(View v) {
 
             LoopBoolean.getmInstance().setLoopboolean(true);
+            LoopBoolean.getmInstance().setLoopId("None so Error");
 
             Intent intent = new Intent(getApplicationContext(), MainActivity.class);
             intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
             startActivity(intent);
         }
     };
+
+    //This two method permit the loop over identify and locate activity
     public void invisibility(){
         mButtonId.setVisibility(View.INVISIBLE);
     }
-
     public void visibility(){
         mButtonId.setVisibility(View.VISIBLE);
     }
+
+    //Identify Button
     public View.OnClickListener btnIdClick = new View.OnClickListener() {
         @Override
         public void onClick(View v) {
 
             LoopBoolean.getmInstance().setLoopboolean(false);
+            LoopBoolean.getmInstance().setLoopId(IDFirebase);
 
             Intent intent = new Intent(getApplicationContext(), IdentifyWingsActivity.class);
             startActivity(intent);
         }
     };
 
-
-
+    //OnCreate
     @Override
     public void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_experience);
 
-        //set id
-        mButtonSave     = (Button) findViewById(R.id.save_button_id);
+        //Set id
         mButtonFinish   = (Button) findViewById(R.id.finish_button_id);
         mButtonId       = (Button) findViewById(R.id.change_button_id);
 
-        //Intent, save data and ParseObject
+        //Intent, take data to save on cloud
         Intent iQuestionnaire = getIntent();
 
+        //Firebase Save
         saveAllInFirebase(iQuestionnaire);
 
-        //Test the success of localate
+        //Test the success of Locate
         loctest = iQuestionnaire.getDoubleExtra(QuestionnaireActivity.LATITUDE_FINAL, 0);
         if(loctest != 0)
         {
             Toast.makeText(getBaseContext(),
-                    "success",
+                    "Success",
                     Toast.LENGTH_LONG).show();
         }
-
-        //Save ParseData
-        mosquitoData = saveAllInParseByLocalisation(iQuestionnaire);
 
         //Button set Text
         mButtonId.setText("Identification");
 
-//        Toast.makeText(getBaseContext(),
-//                Boolean.toString(loopBoolean),
-//                Toast.LENGTH_LONG).show();
 
         if (!loopBoolean){
             invisibility();
@@ -157,7 +135,6 @@ public class ExperienceActivity extends Activity {
         }
 
         //set Click Listener
-        mButtonSave.setOnClickListener(btnSaveClick);
         mButtonFinish.setOnClickListener(btnFinishClick);
         mButtonId.setOnClickListener(btnIdClick);
     }

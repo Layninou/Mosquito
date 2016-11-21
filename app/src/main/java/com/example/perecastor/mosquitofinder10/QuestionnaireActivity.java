@@ -4,24 +4,18 @@ import android.app.Activity;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.Bundle;
-import android.os.storage.StorageManager;
 import android.provider.MediaStore;
 import android.support.annotation.NonNull;
 import android.util.Base64;
 import android.view.View;
 import android.widget.Button;
-import android.widget.CompoundButton;
-import android.widget.ImageView;
 import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.perecastor.mosquitofinder10.R;
 import com.firebase.client.Firebase;
-import com.google.android.gms.common.api.GoogleApiClient;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.storage.FirebaseStorage;
@@ -38,7 +32,6 @@ public class QuestionnaireActivity extends Activity {
     Button mButtonAccept = null;
     RadioGroup mRadioQuestionA = null;
     RadioGroup mRadioQuestionB = null;
-    RadioGroup mRadioQuestionC = null;
     RadioGroup mRadioQuestionD = null;
     RadioGroup mRadioQuestionE = null;
     RadioGroup mRadioQuestionF = null;
@@ -64,8 +57,9 @@ public class QuestionnaireActivity extends Activity {
     public final static String DAYTIME = "Time";
     public final static String TEMPERATURE = "Temperature";
     public final static String BODY_WATER = "Body water";
-    public final static String INSIDE = "inside_outside";
-    public final static String PICTURE = "picture";
+    public final static String INSIDE = "Inside_Outside";
+    public final static String PICTURE = "Picture";
+    public final static String PICTUREID = "Picture_ID";
 
     //Firebase
     public static final String FIREBASESTORAGE = "gs://mosquitofinder.appspot.com";
@@ -76,7 +70,6 @@ public class QuestionnaireActivity extends Activity {
     //Image Attribut
     static final int REQUEST_IMAGE_CAPTURE = 1;
     Bitmap Pics = null;
-    byte[] dbPics = null;
     boolean picstake = false;
 
     /*
@@ -92,13 +85,14 @@ public class QuestionnaireActivity extends Activity {
         return getPackageManager().hasSystemFeature(PackageManager.FEATURE_CAMERA_ANY);
     }
 
-    //Launch the camera as an intent
+    //Launch the camera as an intent with view
     public void launchCamera(View view) {
 
         Intent camIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
         startActivityForResult(camIntent, REQUEST_IMAGE_CAPTURE);
     }
 
+    //Launch the camera as an intent without view
     public void launchCamera() {
 
         Intent camIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
@@ -137,31 +131,27 @@ public class QuestionnaireActivity extends Activity {
             //take the photo
             Bundle extras = data.getExtras();
             Pics = (Bitmap) extras.get("data");
-/*            //Test DBB
-            dbPics = DbBitmapUtility.getBytes(Pics);*/
 
-            //Save in firebase database
+            //Save in firebase database and prevent the picture is take
             picstake = true;
-            if(picstake) {
-                SavePicsInFirebase();
-            }
+            SavePicsInFirebase();
 
             //Send to the Storage
             FirebaseStorage storage = FirebaseStorage.getInstance();
             StorageReference storageRef = storage.getReferenceFromUrl("gs://mosquitofinder.appspot.com");
             StorageReference thisStorage = storageRef.child(uidFirebase).child("pictures/mosquitoes.jpg");
 
-            //Test One
+            //Transformation in lower quality image
             ByteArrayOutputStream baos = new ByteArrayOutputStream();
             Pics.compress(Bitmap.CompressFormat.JPEG, 25, baos);
             byte[] dataPics = baos.toByteArray();
 
+            //Upload
             UploadTask uploadTask = thisStorage.putBytes(dataPics);
             uploadTask.addOnFailureListener(new OnFailureListener() {
                 @Override
                 public void onFailure(@NonNull Exception e) {
                     //Handle Unsuccesful uploads
-
                     Toast.makeText(getBaseContext(),
                             "error, can't send Byte data to the storage",
                             Toast.LENGTH_LONG).show();
@@ -169,22 +159,24 @@ public class QuestionnaireActivity extends Activity {
             }).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
                 @Override
                 public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
+                    //if we need the url, we keep this line
                     Uri downloadUrl = taskSnapshot.getDownloadUrl();
-
-                    Toast.makeText(getBaseContext(),
-                            "you send data Byte to the server",
-                            Toast.LENGTH_LONG).show();
                 }
             });
-
 
         }
     }
 
     /*
     *
+    * And Camera Method
     *
-    * Radio Method
+    */
+
+    /*
+    *
+    *
+    * Radio Button Method
     *
     * */
 
@@ -249,7 +241,7 @@ public class QuestionnaireActivity extends Activity {
         }
     }
 
-    //Inside
+    //Inside or Outside
     public void questionFSolution() {
         if(mRadioQuestionF.getCheckedRadioButtonId() == R.id.radio_question_f_1) {
             inside = 1;
@@ -268,6 +260,12 @@ public class QuestionnaireActivity extends Activity {
             picture = 2;
         }
     }
+
+    /*
+    *
+    * End Radio Button Method
+    *
+    */
 
     /*
     *
@@ -301,14 +299,12 @@ public class QuestionnaireActivity extends Activity {
             experienceActivity.putExtra(INSIDE, inside);
             experienceActivity.putExtra(PICTURE, picture);
 
-
-            //Launch the Camera
-            //if(picture == 1){
-            //    launchCamera(v);
-            //}
-
             if(picstake) {
                 //here send the data to create the link between the picture, and after the identification.
+                experienceActivity.putExtra(PICTUREID, uidFirebase);
+            }
+            else{
+                experienceActivity.putExtra(PICTUREID, "None");
             }
 
             startActivity(experienceActivity);
@@ -324,7 +320,7 @@ public class QuestionnaireActivity extends Activity {
         }
     };
 
-    //
+    //Lauch the camera if photo wanna be take (lauch only once)
     public RadioGroup.OnCheckedChangeListener QuestGChanged = new RadioGroup.OnCheckedChangeListener() {
         @Override
         public void onCheckedChanged(RadioGroup group, int checkedId) {
@@ -340,7 +336,7 @@ public class QuestionnaireActivity extends Activity {
     /*
     *
     *
-    * Create Method
+    * OnCreate Method
     *
     * */
 
@@ -354,7 +350,6 @@ public class QuestionnaireActivity extends Activity {
         mButtonAccept = (Button) findViewById(R.id.question_next_id);
         mRadioQuestionA = (RadioGroup) findViewById(R.id.group_question_a);
         mRadioQuestionB = (RadioGroup) findViewById(R.id.group_question_b);
-        //mRadioQuestionC    = (RadioGroup) findViewById(R.id.group_question_c);
         mRadioQuestionD = (RadioGroup) findViewById(R.id.group_question_d);
         mRadioQuestionE = (RadioGroup) findViewById(R.id.group_question_e);
         mRadioQuestionF = (RadioGroup) findViewById(R.id.group_question_f);
@@ -385,6 +380,5 @@ public class QuestionnaireActivity extends Activity {
         mRadioQuestionG.setOnCheckedChangeListener(QuestGChanged);
 
     }
-
 
 }

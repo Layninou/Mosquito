@@ -6,8 +6,6 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
-import com.example.perecastor.mosquitofinder10.R;
-
 /**
  * Created by Père Castor on 27/12/2015.
  */
@@ -18,7 +16,7 @@ public class IdentifyMainActivity extends Activity {
     Button mSolution2 = null;
     Button mError     = null;
 
-    //intent
+    //Intent
     public final static String ANTENNAE = "antennae";
     public final static String MOUTHPIECE_ANTENNAE = "mouthpiece";
     public final static String WINGS_ANTENNAE = "wings";

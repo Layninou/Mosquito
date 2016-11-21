@@ -35,28 +35,13 @@
         android:textSize="20sp"/>
 
     <Button
-        android:id="@+id/save_button_id"
-
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-
-        android:layout_centerHorizontal="true"
-        android:layout_above="@id/finish_button_id"
-
-        android:background="@drawable/buttonshape"
-
-        android:text="@string/save_button"
-        android:textColor="#FFFFFF"
-        android:textSize="20sp"/>
-
-    <Button
         android:id="@+id/change_button_id"
 
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
 
         android:layout_centerHorizontal="true"
-        android:layout_above="@id/save_button_id"
+        android:layout_above="@id/finish_button_id"
 
         android:visibility="visible"
 

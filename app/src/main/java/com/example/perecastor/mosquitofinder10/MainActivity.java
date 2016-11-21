@@ -2,21 +2,9 @@ package com.example.perecastor.mosquitofinder10;
 
 import android.app.Activity;
 import android.content.Intent;
-import android.content.res.Resources;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
-import android.widget.Toast;
-
-import com.firebase.client.Firebase;
-import com.parse.Parse;
-import com.parse.ParseACL;
-import com.parse.ParseUser;
-
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Objects;
-
 
 public class MainActivity extends Activity {
 
@@ -25,12 +13,6 @@ public class MainActivity extends Activity {
     Button mLocalise = null;
     Button mIdentify = null;
     Button mInformation = null;
-
-    static boolean parseLauncher = true;
-    static boolean firebaseLauncher = true;
-
-    public static final String FIREBASE = "https://mosquitofinder.firebaseio.com/";
-    private Firebase mFirebaseRef;
 
     //method to click on the locatebutton
     public View.OnClickListener btnLocaliseClick = new View.OnClickListener(){
@@ -42,6 +24,7 @@ public class MainActivity extends Activity {
         }
     };
 
+    //method to click on identify button
     public View.OnClickListener btnIdentifyClick = new View.OnClickListener() {
         @Override
         public void onClick(View v) {
@@ -51,6 +34,7 @@ public class MainActivity extends Activity {
         }
     };
 
+    //method to clic on info button
     public View.OnClickListener btnInformationClick = new View.OnClickListener(){
         @Override
         public void onClick(View v){
@@ -72,41 +56,6 @@ public class MainActivity extends Activity {
         mLocalise.setOnClickListener(btnLocaliseClick);
         mIdentify.setOnClickListener(btnIdentifyClick);
         mInformation.setOnClickListener(btnInformationClick);
-
-        //Firebase Launcher
-        if (firebaseLauncher){
-
-            Firebase.setAndroidContext(this);
-
-//            mFirebaseRef = new Firebase(FIREBASE);
-//
-//            //here we test the Database
-//            Firebase testFirebaseLauncher = mFirebaseRef.child("testFb");
-//            Firebase testKey = testFirebaseLauncher.push();
-//            String theUUID = testKey.getKey();
-//            testKey.setValue("test ID");
-//
-//            Toast.makeText(getBaseContext(),
-//                    "normalement l'id est : " +theUUID,
-//                    Toast.LENGTH_LONG).show();
-
-            firebaseLauncher = false;
-        }
-
-        //Parse Launcher
-        if(parseLauncher) {
-            // [Optional] Power your app with Local Datastore. For more info, go to
-            // https://parse.com/docs/android/guide#local-datastore
-            Parse.enableLocalDatastore(getApplicationContext());
-            String applicationID = this.getString(R.string.APPLICATION_ID);
-            String keyClient = this.getString(R.string.CLIENT_KEY);
-            Parse.initialize(this, applicationID, keyClient);
-            ParseUser.enableAutomaticUser();
-            ParseACL defaultACL = new ParseACL();
-            ParseACL.setDefaultACL(defaultACL, true);
-
-            parseLauncher = false;
-        }
 
     }
 }

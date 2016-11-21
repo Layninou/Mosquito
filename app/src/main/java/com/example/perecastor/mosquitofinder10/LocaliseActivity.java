@@ -1,27 +1,16 @@
 package com.example.perecastor.mosquitofinder10;
 
-import android.Manifest;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
-import android.content.pm.PackageManager;
-import android.location.Criteria;
-import android.location.GpsStatus;
 import android.location.Location;
 import android.location.LocationListener;
 import android.location.LocationManager;
-import android.location.LocationProvider;
 import android.os.Bundle;
-import android.support.v4.content.ContextCompat;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
-
-import com.example.perecastor.mosquitofinder10.R;
-
-import java.util.ArrayList;
-import java.util.List;
 
 public class LocaliseActivity extends Activity {
 
@@ -31,18 +20,21 @@ public class LocaliseActivity extends Activity {
     Button mButtonNext       = null;
     Button mButtonReturn     = null;
 
+    //attribut to location
     double sLat = 0;
     double sLon = 0;
 
+    //attribut to intent
     public final static String LATITUDE   = "Latitude";
     public final static String LONGITUDE  = "Longitude";
 
+    //location Manager and Listener
     private LocationManager  locationManager   = null;
     private LocationListener locationListener  = new LocationListener() {
         @Override
         public void onLocationChanged(Location location) {
 
-
+            //active in location changement
             if (location != null) {
                 //we need to get a double of location and transform it
                 double pLatitude = location.getLatitude();
@@ -59,6 +51,7 @@ public class LocaliseActivity extends Activity {
 
             }
 
+            //error
             if (location == null){
                 Toast.makeText(getBaseContext(),"Location is null", Toast.LENGTH_LONG).show();
             }
@@ -144,7 +137,8 @@ public class LocaliseActivity extends Activity {
 
 
         //Location
-        Toast.makeText(getBaseContext(), "We launch the Location Service", Toast.LENGTH_LONG).show();
+        //if it take a to long time to show, we will show the Toast
+        //Toast.makeText(getBaseContext(), "We launch the Location Service", Toast.LENGTH_LONG).show();
 
         //Creation of a location manager
         locationManager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
