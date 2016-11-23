@@ -139,7 +139,7 @@ public class QuestionnaireActivity extends Activity {
             //Send to the Storage
             FirebaseStorage storage = FirebaseStorage.getInstance();
             StorageReference storageRef = storage.getReferenceFromUrl("gs://mosquitofinder.appspot.com");
-            StorageReference thisStorage = storageRef.child(uidFirebase).child("pictures/mosquitoes.jpg");
+            StorageReference thisStorage = storageRef.child(uidFirebase).child("mosquitoes.jpg");
 
             //Transformation in lower quality image
             ByteArrayOutputStream baos = new ByteArrayOutputStream();
@@ -169,7 +169,7 @@ public class QuestionnaireActivity extends Activity {
 
     /*
     *
-    * And Camera Method
+    * End Camera Method
     *
     */
 

@@ -27,6 +27,7 @@ public class ExperienceActivity extends Activity {
     public static final String FIREBASEQUIZZ = "https://mosquitofinder.firebaseio.com/";
     private Firebase mFirebaseRef;
     private String IDFirebase;
+    Intent iQuestionnaire;
 
     //Show if data work
     double loctest = 0;
@@ -68,6 +69,10 @@ public class ExperienceActivity extends Activity {
         @Override
         public void onClick(View v) {
 
+            //Firebase Save
+            saveAllInFirebase(iQuestionnaire);
+
+            //Instance
             LoopBoolean.getmInstance().setLoopboolean(true);
             LoopBoolean.getmInstance().setLoopId("None so Error");
 
@@ -90,6 +95,10 @@ public class ExperienceActivity extends Activity {
         @Override
         public void onClick(View v) {
 
+            //Firebase Save
+            saveAllInFirebase(iQuestionnaire);
+
+            //Instance
             LoopBoolean.getmInstance().setLoopboolean(false);
             LoopBoolean.getmInstance().setLoopId(IDFirebase);
 
@@ -109,10 +118,8 @@ public class ExperienceActivity extends Activity {
         mButtonId       = (Button) findViewById(R.id.change_button_id);
 
         //Intent, take data to save on cloud
-        Intent iQuestionnaire = getIntent();
+        iQuestionnaire = getIntent();
 
-        //Firebase Save
-        saveAllInFirebase(iQuestionnaire);
 
         //Test the success of Locate
         loctest = iQuestionnaire.getDoubleExtra(QuestionnaireActivity.LATITUDE_FINAL, 0);

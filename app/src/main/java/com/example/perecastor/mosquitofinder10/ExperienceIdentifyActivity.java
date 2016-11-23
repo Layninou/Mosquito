@@ -26,6 +26,7 @@ public class ExperienceIdentifyActivity extends Activity {
     public static final String FIREBASEIDENTIFICATION = "https://mosquitofinder.firebaseio.com/";
     private Firebase mFirebaseRef;
     private String IDFirebase;
+    Intent iIdentify;
 
     //show if data work
     double loctest = 0;
@@ -60,6 +61,10 @@ public class ExperienceIdentifyActivity extends Activity {
         @Override
         public void onClick(View v) {
 
+            //Firebase Save
+            saveAllInFirebaseId(iIdentify);
+
+            //Instance
             LoopBoolean.getmInstance().setLoopboolean(true);
             LoopBoolean.getmInstance().setLoopId("None so Error");
 
@@ -74,6 +79,10 @@ public class ExperienceIdentifyActivity extends Activity {
         @Override
         public void onClick(View v) {
 
+            //Firebase Save
+            saveAllInFirebaseId(iIdentify);
+
+            //Instance
             LoopBoolean.getmInstance().setLoopboolean(false);
             LoopBoolean.getmInstance().setLoopId(IDFirebase);
 
@@ -101,7 +110,7 @@ public class ExperienceIdentifyActivity extends Activity {
         mButtonQuizz        = (Button) findViewById(R.id.change_button_id);
 
         //Intent, save data and ParseObject
-        Intent iIdentify = getIntent();
+        iIdentify = getIntent();
 
         //test the succes of the identification
         loctest = iIdentify.getIntExtra(IdentifyMainActivity.ANTENNAE, 0);
@@ -114,9 +123,6 @@ public class ExperienceIdentifyActivity extends Activity {
 
         //Button set Text
         mButtonQuizz.setText("Locate");
-
-        //Firebase Save
-        saveAllInFirebaseId(iIdentify);
 
 
         if (!loopBoolean){
