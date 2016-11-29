@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Activity name -->
+    <string name="app_name">MosquitoMapper</string>
+    <string name="localise_name">Standort bestimmen</string>
+    <string name="questionnaire_name">Fragebogen</string>
+    <string name="experience_name">Experiment</string>
+    <string name="experience_identify_name">Experiment Identifizierung</string>
+    <string name="identification_name_1">Identifizierung Fühler</string>
+    <string name="identification_name_2">Identifizierung Mundwerkzeug</string>
+    <string name="identification_name_3">Identification Flügel</string>
+    <string name="information_name">Information</string>
+    <string name="action_settings">Einstellungen</string>
+
+    <!-- Parse code -->
+    <string name="APPLICATION_ID">OpDwJ4MEXMyg8OWQviJzyfwVwBtUZz2Rtgt2wZrl</string>
+    <string name="CLIENT_KEY">wionXRZIAVTo1I5eCDtN4MTZjYWvVJJsoB09ayeM</string>
+
+    <!-- Main activity string -->
+    <string name="title_up">MOSQUITO</string>
+    <string name="title_down">MAPPER</string>
+    <string name="localise">Fundort der Mücke bestimmen</string>
+    <string name="identify">Mücke identifizieren</string>
+    <string name="information">Information</string>
+
+    <!-- Localise activity string -->
+    <string name="latitude_label">Grad Nord</string>
+    <string name="longitude_label">Grad Ost</string>
+    <string name="loc_return_button">Zurück</string>
+    <string name="loc_next_button">Weiter</string>
+
+    <!-- Questionnaire activity string-->
+    <string name="question1">Wieviel Mücken hast du gefunden ?</string>
+    <string name="question2"> Größe der Mücken :</string>
+    <string name="question3">Uhrzeit </string>
+    <string name="question4">Wie warm oder kalt ist es ?</string>
+    <string name="question5">Gibt es stehendes gewasser in der Nähe (z.b. See, Pfützen,...) ?</string>
+    <string name="question6">Bist du in einem Gebäude oder draußen ?</string>
+    <string name="question7">Kannst du ein Foto von der Mücke machen ?</string>
+
+    <string name="answer_question_1_a">1</string>
+    <string name="answer_question_1_b">2 bis 5</string>
+    <string name="answer_question_1_c">5 bis 30</string>
+    <string name="answer_question_1_d">mehr</string>
+
+    <string name="answer_question_2_a"> &lt; 1 cm </string>
+    <string name="answer_question_2_b">1 bis 2 cm</string>
+    <string name="answer_question_2_c"> &gt; 2 cm</string>
+
+    <string name="answer_question_3_a">zwischen 7 und 12</string>
+    <string name="answer_question_3_b">zwischen 12 und 17</string>
+    <string name="answer_question_3_c">zwischen 17 und 22</string>
+    <string name="answer_question_3_d">zwischen 22 und 7</string>
+
+    <string name="answer_question_4_a">&lt; 0°C</string>
+    <string name="answer_question_4_b">&lt; 10°C</string>
+    <string name="answer_question_4_c">&lt; 20°C</string>
+    <string name="answer_question_4_d">&gt; 20°C</string>
+
+    <string name="answer_question_5_a">ja</string>
+    <string name="answer_question_5_b">nein</string>
+
+    <string name="answer_question_6_a">in einem Gebäude</string>
+    <string name="answer_question_6_b">draußen</string>
+
+    <string name="answer_question_7_a">ja</string>
+    <string name="answer_question_7_b">nein</string>
+
+    <string name="quest_return_button">zurück</string>
+    <string name="quest_next_button">weiter</string>
+
+    <!-- Experience activity string-->
+    <string name="save_button">Experiment senden</string>
+    <string name="finish_button">Ende</string>
+
+    <!-- Identify activity string-->
+    <string name="identification_antennae">Fühler</string>
+    <string name="identification_mouthpiece">Mundwerkzeuge</string>
+    <string name="identification_wings">Flügel</string>
+
+    <string name="text_button_antennae_1">Wenige Fühlerhärchen</string>
+    <string name="text_button_antennae_2">Viele Fühlerhärchen</string>
+    <string name="text_button_mouthpiece_1">Mehrere lange Werkzeuge</string>
+    <string name="text_button_mouthpiece_2">Ein langes Werkzeug</string>
+    <string name="text_button_wings_1">- Keine Aderung \n- Flügel kürzer \n als Hinterleib</string>
+    <string name="text_button_wings_2">- Aderung \n- Flügel länger \n als Hinterleib</string>
+    <string name="text_error_id_button">Nichts des oben Genannten</string>
+
+    <!-- Information activity string-->
+    <string name="text_information_all"> Alle von dir zur Verfügung gestellten Daten werden auf einem privaten\n
+Server gespeichert und nicht für kommerzielle Zwecke verwendet. Die von dir zur Verfügung gestellten Daten (Ort und Angaben im Fragebogen) werden jedoch anonymisiert veröffentlicht und für wissenschaftliche Zwecke verwendet.\n
+	\n
+	Du kannst gerne Feedback und Vorschläge an folgende Adresse senden: \n
+         \n
+        ScienceTogetherRI@gmail.com \n
+        \n
+        Theophile Guilbaud hat die App designet und programmiert; Camille Guilbaud hatte die ursprüngliche Idee und hat die App entworfen.
+         \n \nVielen Dank an J.Petermann, B.Tietjen und die Mitglieder ihrer Arbeitsgruppen für ihre Unterstützung.
+         Diese Projekt wurde durch eine Förderung der Schweizer Nationalfonds ermöglicht.</string>
+    <string name="text_information_1">Alle von dir zur Verfügung gestellten Daten werden auf einem privaten</string>
+    <string name="text_information_2">Server gespeichert und nicht für kommerzielle</string>
+    <string name="text_information_3">Zwecke verwendet. Die von dir zur Verfügung</string>
+    <string name="text_information_4">gestellten Daten (Ort und Angaben im Fragebogen) werden jedoch</string>
+    <string name="text_information_5">anonymisiert veröffentlicht und für wissenschaftliche Zwecke verwendet.</string>
+    <string name="text_information_7">Du kannst gerne Feedback und Vorschläge an folgende Adresse senden:</string>
+    <string name="text_information_8">ScienceTogetherRI@gmail.com</string>
+    <string name="text_information_10">Theophile Guilbaud hat die App designet und programmiert; Camille Guilbaud hatte die ursprüngliche Idee und hat die App entworfen.</string>
+    <string name="text_information_13">Vielen Dank an J.Petermann, B.Tietjen und die Mitglieder ihrer Arbeitsgruppen für ihre Unterstützung.</string>
+    <string name="text_information_14"> Diese Projekt wurde durch eine Förderung der Schweizer Nationalfonds ermöglicht.</string>
+
+</resources>

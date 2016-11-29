@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Activity name -->
+    <string name="app_name">MosquitoMapper</string>
+    <string name="localise_name">Localisation</string>
+    <string name="questionnaire_name">Questionnaire</string>
+    <string name="experience_name">Experience</string>
+    <string name="experience_identify_name">Experience Identify</string>
+    <string name="identification_name_1">Identification Antennes</string>
+    <string name="identification_name_2">Identification Bouche</string>
+    <string name="identification_name_3">Identification Ailes</string>
+    <string name="information_name">Informations</string>
+    <string name="action_settings">Settings</string>
+
+    <!-- Parse code -->
+    <string name="APPLICATION_ID">OpDwJ4MEXMyg8OWQviJzyfwVwBtUZz2Rtgt2wZrl</string>
+    <string name="CLIENT_KEY">wionXRZIAVTo1I5eCDtN4MTZjYWvVJJsoB09ayeM</string>
+
+    <!-- Main activity string -->
+    <string name="title_up">MOSQUITO</string>
+    <string name="title_down">MAPPER</string>
+    <string name="localise">Localiser Moustique</string>
+    <string name="identify">Identifier Moustique</string>
+    <string name="information">Informations</string>
+
+    <!-- Localise activity string -->
+    <string name="latitude_label">Latitude</string>
+    <string name="longitude_label">Longitude</string>
+    <string name="loc_return_button">Retour</string>
+    <string name="loc_next_button">Suivant</string>
+
+    <!-- Questionnaire activity string-->
+    <string name="question1">Combien y a-t-il de moustiques ?</string>
+    <string name="question2">Taille du moustique :</string>
+    <string name="question3">Quelle heure est-il ?</string>
+    <string name="question4">Quelle est la température ?</string>
+    <string name="question5">Y a-t-il de l\'eau stagnante près de vous ?</string>
+    <string name="question6">Êtes-vous à l\'intérieur ou à l\'exterieur ?</string>
+    <string name="question7">Pouvez-vous photographier le moustique ?</string>
+
+    <string name="answer_question_1_a">1</string>
+    <string name="answer_question_1_b">2 à 5</string>
+    <string name="answer_question_1_c">5 à 30</string>
+    <string name="answer_question_1_d">plus</string>
+
+    <string name="answer_question_2_a"> &lt; 1 cm </string>
+    <string name="answer_question_2_b">1 à 2 cm</string>
+    <string name="answer_question_2_c"> &gt; 2 cm</string>
+
+    <string name="answer_question_3_a">entre 7 et 12</string>
+    <string name="answer_question_3_b">entre 12 et 17</string>
+    <string name="answer_question_3_c">entre 17 et 22</string>
+    <string name="answer_question_3_d">entre 22 et 7</string>
+
+    <string name="answer_question_4_a">&lt; 0°C</string>
+    <string name="answer_question_4_b">&lt; 10°C</string>
+    <string name="answer_question_4_c">&lt; 20°C</string>
+    <string name="answer_question_4_d">&gt; 20°C</string>
+
+    <string name="answer_question_5_a">oui</string>
+    <string name="answer_question_5_b">non</string>
+
+    <string name="answer_question_6_a">intérieur</string>
+    <string name="answer_question_6_b">exterieur</string>
+
+    <string name="answer_question_7_a">oui</string>
+    <string name="answer_question_7_b">non</string>
+
+    <string name="quest_return_button">Retour</string>
+    <string name="quest_next_button">Suivant</string>
+
+    <!-- Experience activity string-->
+    <string name="save_button">Finir l\'experience</string>
+    <string name="finish_button">Fin</string>
+
+    <!-- Identify activity string-->
+    <string name="identification_antennae">ANTENNES</string>
+    <string name="identification_mouthpiece">BOUCHE</string>
+    <string name="identification_wings">AILES</string>
+
+    <string name="text_button_antennae_1">Peu plumeuses</string>
+    <string name="text_button_antennae_2">Très plumeuses</string>
+    <string name="text_button_mouthpiece_1">Plusieurs longs</string>
+    <string name="text_button_mouthpiece_2">Un Long</string>
+    <string name="text_button_wings_1">- Pas de veines \n- Ailes plus courtes \n que l\'abdomen</string>
+    <string name="text_button_wings_2">- Veines \n- Ailes plus longues \n que l\'abdomen</string>
+    <string name="text_error_id_button">Rien de tout ça</string>
+
+    <!-- Information activity string-->
+    <string name="text_information_all">Toutes les données collectées sont stockées sur un serveur\n
+                                    privé et ne seront pas utilisées à des fins\n
+                                    commerciales. Cependant, les données fournies\n
+                                    (localization and réponses au quizz) \n
+                                    seront accessibles par tous et, nous éspérons, utilisées à des fins scientifiques.\n
+                                     \n
+        Vous pouvez nous envoyer vos commentaires et suggestions à l\'adresse suivante:\n
+        \n
+        ScienceTogetherRI@gmail.com \n
+        \n
+        Theophile Guilbaud au codage et la conception; Camille Guilbaud pour l\'idée originale et la conception.
+        \n \nUn grand merci à J.Petermann, B.Tietjen, et les membres de leurs groupes respectifs pour leur support.
+        Ce travail a été rendu possible grâce à l\'aide du fonds national suisse.</string>
+    <string name="text_information_1">Toutes les données collectées sont stockées sur un serveur</string>
+    <string name="text_information_2">privé et ne seront pas utilisées à des fins</string>
+    <string name="text_information_3">commerciales. Cependant, les données fournies</string>
+    <string name="text_information_4"> (localization and réponses au quizz)</string>
+    <string name="text_information_5"> seront accessibles par tous et, nous éspérons, utilisées à des fins scientifiques.</string>
+    <string name="text_information_7"> Vous pouvez nous envoyer vos commentaires et suggestions à l\'adresse suivante:</string>
+    <string name="text_information_8">ScienceTogetherRI@gmail.com</string>
+    <string name="text_information_10">Theophile Guilbaud au codage et la conception; Camille Guilbaud pour l\'idée originale et la conception.</string>
+    <string name="text_information_13">Un grand merci à J.Petermann, B.Tietjen, et les membres de leurs groupes respectifs pour leur support.</string>
+    <string name="text_information_14">Ce travail a été rendu possible grâce à l\'aide du fonds national suisse.</string>
+</resources>

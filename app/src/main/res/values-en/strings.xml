@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- Activity name -->
+    <string name="app_name">MosquitoMapper</string>
+    <string name="localise_name">Localisation</string>
+    <string name="questionnaire_name">Questionnaire</string>
+    <string name="experience_name">Experience</string>
+    <string name="experience_identify_name">Experience Identify</string>
+    <string name="identification_name_1">Identification Antennae</string>
+    <string name="identification_name_2">Identification Mouthpiece</string>
+    <string name="identification_name_3">Identification Wings</string>
+    <string name="information_name">Informations</string>
+    <string name="action_settings">Settings</string>
+
+    <!-- Parse code -->
+    <string name="APPLICATION_ID">OpDwJ4MEXMyg8OWQviJzyfwVwBtUZz2Rtgt2wZrl</string>
+    <string name="CLIENT_KEY">wionXRZIAVTo1I5eCDtN4MTZjYWvVJJsoB09ayeM</string>
+
+    <!-- Main activity string -->
+    <string name="title_up">MOSQUITO</string>
+    <string name="title_down">MAPPER</string>
+    <string name="localise">Locate Mosquito</string>
+    <string name="identify">Identify Mosquito</string>
+    <string name="information">Informations</string>
+
+    <!-- Localise activity string -->
+    <string name="latitude_label">Latitude</string>
+    <string name="longitude_label">Longitude</string>
+    <string name="loc_return_button">Return</string>
+    <string name="loc_next_button">Next</string>
+
+    <!-- Questionnaire activity string-->
+    <string name="question1">How many mosquitoes are there ?</string>
+    <string name="question2">Size of mosquito :</string>
+    <string name="question3">What time is it ?</string>
+    <string name="question4">What is the temperature ?</string>
+    <string name="question5">Is there any stagnant water around you ?</string>
+    <string name="question6">Are you inside or outside ?</string>
+    <string name="question7">Can you take a picture of the mosquito ?</string>
+
+    <string name="answer_question_1_a">1</string>
+    <string name="answer_question_1_b">2 to 5</string>
+    <string name="answer_question_1_c">5 to 30</string>
+    <string name="answer_question_1_d">more</string>
+
+    <string name="answer_question_2_a"> &lt; 1 cm </string>
+    <string name="answer_question_2_b">1 to 2 cm</string>
+    <string name="answer_question_2_c"> &gt; 2 cm</string>
+
+    <string name="answer_question_3_a">between 7 and 12</string>
+    <string name="answer_question_3_b">between 12 and 17</string>
+    <string name="answer_question_3_c">between 17 and 22</string>
+    <string name="answer_question_3_d">between 22 and 7</string>
+
+    <string name="answer_question_4_a">&lt; 0°C</string>
+    <string name="answer_question_4_b">&lt; 10°C</string>
+    <string name="answer_question_4_c">&lt; 20°C</string>
+    <string name="answer_question_4_d">&gt; 20°C</string>
+
+    <string name="answer_question_5_a">yes</string>
+    <string name="answer_question_5_b">no</string>
+
+    <string name="answer_question_6_a">inside</string>
+    <string name="answer_question_6_b">outside</string>
+
+    <string name="answer_question_7_a">yes</string>
+    <string name="answer_question_7_b">no</string>
+
+    <string name="quest_return_button">Return</string>
+    <string name="quest_next_button">Accept</string>
+
+    <!-- Experience activity string-->
+    <string name="save_button">Take this experience</string>
+    <string name="finish_button">Finish</string>
+
+    <!-- Identify activity string-->
+    <string name="identification_antennae">ANTENNAE</string>
+    <string name="identification_mouthpiece">MOUTHPIECE</string>
+    <string name="identification_wings">WINGS</string>
+
+    <string name="text_button_antennae_1">Low Hair Density</string>
+    <string name="text_button_antennae_2">High Hair Density</string>
+    <string name="text_button_mouthpiece_1">Several Long</string>
+    <string name="text_button_mouthpiece_2">One Long</string>
+    <string name="text_button_wings_1">- No veins \n- Wings shorter \n than abdomen</string>
+    <string name="text_button_wings_2">- Veins \n- Wings longer \n than abdomen</string>
+    <string name="text_error_id_button">None of the above</string>
+
+    <!-- Information activity string-->
+    <string name="text_information_all">All data collected are stored on a private\n
+                                    server and will not be used for commercial\n
+                                    purposes. However, the data you provide\n as user
+                                    (localization and quizz answers) \n
+                                    will be publicly available and, hopefully, used for scientific purposes.\n
+                                     \n
+        You are welcome to provide feedback and suggestions at the following address:\n
+        \n
+        ScienceTogether@gmail.com \n
+        \n
+        Theophile Guilbaud designed and coded the app; Camille Guilbaud had the original idea and designed the app.
+        \n \nThank to J.Petermann, B.Tietjen, and each member of their respective group for their support.
+        This work was made possible thanks to the funding of the Swiss National Funds.</string>
+    <string name="text_information_1">All data collected is stored on a private</string>
+    <string name="text_information_2">server and will not be used for commercial</string>
+    <string name="text_information_3">purposes. However, the data you provide</string>
+    <string name="text_information_4">as user (localization and quizz answers)</string>
+    <string name="text_information_5">will be publicly available and, hopefully, used for scientific purposes.</string>
+    <string name="text_information_7">You are welcome to provide feedback and suggestions at the following address:</string>
+    <string name="text_information_8">ScienceTogether@gmail.com</string>
+    <string name="text_information_10">Theophile Guilbaud designed and coded the app; Camille Guilbaud had the original idea and designed the app.</string>
+    <string name="text_information_13">Thank to J.Petermann, B.Tietjen, and each member of their respective group for their support.</string>
+    <string name="text_information_14">This work was made possible thanks to the funding of the Swiss National Funds.</string>
+
+</resources>
