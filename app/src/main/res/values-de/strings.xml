@@ -78,10 +78,10 @@
     <string name="identification_mouthpiece">Mundwerkzeuge</string>
     <string name="identification_wings">Flügel</string>
 
-    <string name="text_button_antennae_1">Wenige Fühlerhärchen</string>
-    <string name="text_button_antennae_2">Viele Fühlerhärchen</string>
-    <string name="text_button_mouthpiece_1">Mehrere lange Werkzeuge</string>
-    <string name="text_button_mouthpiece_2">Ein langes Werkzeug</string>
+    <string name="text_button_antennae_1">Wenige\n Fühlerhärchen</string>
+    <string name="text_button_antennae_2">Viele\n Fühlerhärchen</string>
+    <string name="text_button_mouthpiece_1">Mehrere\n lange Werkzeuge</string>
+    <string name="text_button_mouthpiece_2">Ein\n langes Werkzeug</string>
     <string name="text_button_wings_1">- Keine Aderung \n- Flügel kürzer \n als Hinterleib</string>
     <string name="text_button_wings_2">- Aderung \n- Flügel länger \n als Hinterleib</string>
     <string name="text_error_id_button">Nichts des oben Genannten</string>

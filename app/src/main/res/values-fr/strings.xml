@@ -82,8 +82,8 @@
     <string name="text_button_antennae_2">Très plumeuses</string>
     <string name="text_button_mouthpiece_1">Plusieurs longs</string>
     <string name="text_button_mouthpiece_2">Un Long</string>
-    <string name="text_button_wings_1">- Pas de veines \n- Ailes plus courtes \n que l\'abdomen</string>
-    <string name="text_button_wings_2">- Veines \n- Ailes plus longues \n que l\'abdomen</string>
+    <string name="text_button_wings_1">- Pas de veines \n- Ailes plus\n courtes que\n l\'abdomen</string>
+    <string name="text_button_wings_2">- Veines \n- Ailes plus\n longues que\n l\'abdomen</string>
     <string name="text_error_id_button">Rien de tout ça</string>
 
     <!-- Information activity string-->

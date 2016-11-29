@@ -1,4 +1,5 @@
 <resources>
+
     <!-- Activity name -->
     <string name="app_name">MosquitoMapper</string>
     <string name="localise_name">Localisation</string>
@@ -23,7 +24,7 @@
     <string name="information">Informations</string>
 
     <!-- Localise activity string -->
-    <string name="latitude_label">latitude</string>
+    <string name="latitude_label">Latitude</string>
     <string name="longitude_label">Longitude</string>
     <string name="loc_return_button">Return</string>
     <string name="loc_next_button">Next</string>
@@ -86,7 +87,7 @@
     <string name="text_error_id_button">None of the above</string>
 
     <!-- Information activity string-->
-    <string name="text_information_all">All data collected is stored on a private\n
+    <string name="text_information_all">All data collected are stored on a private\n
                                     server and will not be used for commercial\n
                                     purposes. However, the data you provide\n as user
                                     (localization and quizz answers) \n
@@ -105,7 +106,7 @@
     <string name="text_information_4">as user (localization and quizz answers)</string>
     <string name="text_information_5">will be publicly available and, hopefully, used for scientific purposes.</string>
     <string name="text_information_7">You are welcome to provide feedback and suggestions at the following address:</string>
-    <string name="text_information_8">ScienceTogetherRI@gmail.com</string>
+    <string name="text_information_8">ScienceTogether@gmail.com</string>
     <string name="text_information_10">Theophile Guilbaud designed and coded the app; Camille Guilbaud had the original idea and designed the app.</string>
     <string name="text_information_13">Thank to J.Petermann, B.Tietjen, and each member of their respective group for their support.</string>
     <string name="text_information_14">This work was made possible thanks to the funding of the Swiss National Funds.</string>
