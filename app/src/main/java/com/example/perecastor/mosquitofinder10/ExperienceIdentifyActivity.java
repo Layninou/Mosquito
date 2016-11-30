@@ -112,15 +112,6 @@ public class ExperienceIdentifyActivity extends Activity {
         //Intent, save data and ParseObject
         iIdentify = getIntent();
 
-        //test the succes of the identification
-        loctest = iIdentify.getIntExtra(IdentifyMainActivity.ANTENNAE, 0);
-        if(loctest != 0)
-        {
-            Toast.makeText(getBaseContext(),
-                    "Success",
-                    Toast.LENGTH_LONG).show();
-        }
-
         //Button set Text
         mButtonQuizz.setText("Locate");
 

@@ -120,16 +120,6 @@ public class ExperienceActivity extends Activity {
         //Intent, take data to save on cloud
         iQuestionnaire = getIntent();
 
-
-        //Test the success of Locate
-        loctest = iQuestionnaire.getDoubleExtra(QuestionnaireActivity.LATITUDE_FINAL, 0);
-        if(loctest != 0)
-        {
-            Toast.makeText(getBaseContext(),
-                    "Success",
-                    Toast.LENGTH_LONG).show();
-        }
-
         //Button set Text
         mButtonId.setText("Identification");
 
