@@ -27,15 +27,6 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme" >
 
-
-        <meta-data
-            android:name="com.parse.APPLICATION_ID"
-            android:value="OpDwJ4MEXMyg8OWQviJzyfwVwBtUZz2Rtgt2wZrl" />
-        <meta-data
-            android:name="com.parse.CLIENT_KEY"
-            android:value="wionXRZIAVTo1I5eCDtN4MTZjYWvVJJsoB09ayeM" />
-
-
         <activity
             android:name=".MainActivity"
             android:screenOrientation="portrait">
@@ -85,12 +76,6 @@
             android:name=".ExperienceIdentifyActivity"
             android:screenOrientation="portrait"
             android:label="@string/experience_identify_name"/>
-
-        <!-- ATTENTION: This was auto-generated to add Google Play services to your project for
-     App Indexing.  See https://g.co/AppIndexing/AndroidStudio for more information. -->
-        <meta-data
-            android:name="com.google.android.gms.version"
-            android:value="@integer/google_play_services_version" />
 
 
     </application>
