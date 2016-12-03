@@ -30,7 +30,7 @@
     <string name="question2"> Größe der Mücken :</string>
     <string name="question3">Uhrzeit </string>
     <string name="question4">Wie warm oder kalt ist es ?</string>
-    <string name="question5">Gibt es stehendes gewasser in der Nähe (z.b. See, Pfützen,...) ?</string>
+    <string name="question5">Gibt es stehende gewässer in der Nähe (z.b. Seen, Pfützen,...) ?</string>
     <string name="question6">Bist du in einem Gebäude oder draußen ?</string>
     <string name="question7">Kannst du ein Foto von der Mücke machen ?</string>
 
@@ -90,7 +90,7 @@ Server gespeichert und nicht für kommerzielle Zwecke verwendet. Die von dir zur
          \n
         ScienceTogetherRI@gmail.com \n
         \n
-        Theophile Guilbaud hat die App designet und programmiert; Camille Guilbaud hatte die ursprüngliche Idee und hat die App entworfen.
+        Theophile Guilbaud hat die App designt und programmiert; Camille Guilbaud hatte die ursprüngliche Idee und hat die App entworfen.
          \n \nVielen Dank an J.Petermann, B.Tietjen und die Mitglieder ihrer Arbeitsgruppen für ihre Unterstützung.
          Diese Projekt wurde durch eine Förderung der Schweizer Nationalfonds ermöglicht.</string>
     <string name="text_information_1">Alle von dir zur Verfügung gestellten Daten werden auf einem privaten</string>
