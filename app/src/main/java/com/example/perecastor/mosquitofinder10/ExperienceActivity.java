@@ -121,7 +121,7 @@ public class ExperienceActivity extends Activity {
         iQuestionnaire = getIntent();
 
         //Button set Text
-        mButtonId.setText("Identification");
+        mButtonId.setText(R.string.identify);
 
 
         if (!loopBoolean){
