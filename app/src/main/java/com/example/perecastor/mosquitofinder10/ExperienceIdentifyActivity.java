@@ -113,7 +113,7 @@ public class ExperienceIdentifyActivity extends Activity {
         iIdentify = getIntent();
 
         //Button set Text
-        mButtonQuizz.setText("Locate");
+        mButtonQuizz.setText(R.string.localise);
 
 
         if (!loopBoolean){
