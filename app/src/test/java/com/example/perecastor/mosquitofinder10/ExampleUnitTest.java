@@ -1,4 +1,4 @@
-package com.example.perecastor.mosquitofinder10;
+package com.sciencetogether.perecastor.mosquitomapper;
 
 import org.junit.Test;
 

@@ -5,7 +5,7 @@ android {
     buildToolsVersion '23.0.1'
 
     defaultConfig {
-        applicationId "com.example.perecastor.mosquitofinder10"
+        applicationId "com.sciencetogether.perecastor.mosquitomapper"
         minSdkVersion 14
         targetSdkVersion 21
         versionCode 1
