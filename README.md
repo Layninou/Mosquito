@@ -1,5 +1,5 @@
 # MosquitoMapper
-<img src="/app/src/main/res/drawable/app_logo.png" align="right"/>
+<img src="/app/src/main/res/drawable/app_logo.png" width="200" height="200" align="right"/>
 
 ### The App that will save your skin from mosquito bites
 
