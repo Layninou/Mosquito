@@ -44,8 +44,8 @@ public class ExperienceActivity extends Activity {
 
         newFirebaseQuizzLauncher.child("Quizz").child("Latitude").setValue(intent.getDoubleExtra(QuestionnaireActivity.LATITUDE_FINAL, 0));
         newFirebaseQuizzLauncher.child("Quizz").child("Longitude").setValue(intent.getDoubleExtra(QuestionnaireActivity.LONGITUDE_FINAL, 0));
-        newFirebaseQuizzLauncher.child("Quizz").child("Mosquito").setValue(intent.getDoubleExtra(QuestionnaireActivity.MOSQUITO, 0));
-        newFirebaseQuizzLauncher.child("Quizz").child("Size").setValue(intent.getDoubleExtra(QuestionnaireActivity.SIZE, 0));
+        newFirebaseQuizzLauncher.child("Quizz").child("Mosquito").setValue(intent.getIntExtra(QuestionnaireActivity.MOSQUITO, 0));
+        newFirebaseQuizzLauncher.child("Quizz").child("Size").setValue(intent.getIntExtra(QuestionnaireActivity.SIZE, 0));
         newFirebaseQuizzLauncher.child("Quizz").child("Daytime").setValue(intent.getIntExtra(QuestionnaireActivity.DAYTIME, 0));
         newFirebaseQuizzLauncher.child("Quizz").child("Temperature").setValue(intent.getIntExtra(QuestionnaireActivity.TEMPERATURE, 0));
         newFirebaseQuizzLauncher.child("Quizz").child("Bodywarm").setValue(intent.getIntExtra(QuestionnaireActivity.BODY_WATER, 0));
