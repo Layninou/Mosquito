@@ -132,6 +132,17 @@ public class QuestionnaireActivity extends Activity {
             Bundle extras = data.getExtras();
             Pics = (Bitmap) extras.get("data");
 
+            //get time to add on firebase
+            Calendar rightNow = Calendar.getInstance();
+            int year = rightNow.YEAR;
+            int month = rightNow.MONTH;
+            String yearChild = Integer.toString(year);
+            String monthChild = Integer.toString(month);
+
+            //Get the country
+            //ATTENTION this isn't the country by location but by name use
+            String localePlace = getApplicationContext().getResources().getConfiguration().locale.getCountry();
+
             //Save in firebase database and prevent the picture is take
             picstake = true;
             SavePicsInFirebase();
@@ -139,7 +150,8 @@ public class QuestionnaireActivity extends Activity {
             //Send to the Storage
             FirebaseStorage storage = FirebaseStorage.getInstance();
             StorageReference storageRef = storage.getReferenceFromUrl("gs://mosquitofinder.appspot.com");
-            StorageReference thisStorage = storageRef.child(uidFirebase).child("mosquitoes.jpg");
+            StorageReference thisStorage =
+                    storageRef.child(localePlace).child(yearChild).child(monthChild).child(uidFirebase).child("mosquitoes.jpg");
 
             //Transformation in lower quality image
             ByteArrayOutputStream baos = new ByteArrayOutputStream();
