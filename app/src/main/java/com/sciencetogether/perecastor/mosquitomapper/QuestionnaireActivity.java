@@ -134,8 +134,8 @@ public class QuestionnaireActivity extends Activity {
 
             //get time to add on firebase
             Calendar rightNow = Calendar.getInstance();
-            int year = rightNow.YEAR;
-            int month = rightNow.MONTH;
+            int year = rightNow.get(Calendar.YEAR);
+            int month = rightNow.get(Calendar.MONTH);
             String yearChild = Integer.toString(year);
             String monthChild = Integer.toString(month);
 

@@ -1,2 +1,114 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources></resources>
+<resources>
+    <!-- Activity name -->
+    <string name="app_name">MosquitoMapper</string>
+    <string name="localise_name">Local</string>
+    <string name="questionnaire_name">Questionário</string>
+    <string name="experience_name">Amostragem</string>
+    <string name="experience_identify_name">Identificação</string>
+    <string name="identification_name_1">Identificação Antena</string>
+    <string name="identification_name_2">Identificação Probóscide</string>
+    <string name="identification_name_3">Identificação Asas</string>
+    <string name="information_name">Informações</string>
+    <string name="action_settings">Definições</string>
+
+    <!-- Parse code -->
+    <string name="APPLICATION_ID">OpDwJ4MEXMyg8OWQviJzyfwVwBtUZz2Rtgt2wZrl</string>
+    <string name="CLIENT_KEY">wionXRZIAVTo1I5eCDtN4MTZjYWvVJJsoB09ayeM</string>
+
+    <!-- Main activity string -->
+    <string name="title_up">MOSQUITO</string>
+    <string name="title_down">MAPPER</string>
+    <string name="localise">Localizar Mosquito</string>
+    <string name="identify">Identificar Mosquito</string>
+    <string name="information">Informações</string>
+
+    <!-- Localise activity string -->
+    <string name="latitude_label">Latitude</string>
+    <string name="longitude_label">Longitude</string>
+    <string name="loc_return_button">Voltar</string>
+    <string name="loc_next_button">Avançar</string>
+
+    <!-- Questionnaire activity string-->
+    <string name="question1">Quantos mosquitos avistados ?</string>
+    <string name="question2">Tamanho dos mosquitos :</string>
+    <string name="question3">Horário ?</string>
+    <string name="question4">Temperatura ?</string>
+    <string name="question5">A água parada nas redondezas ?</string>
+    <string name="question6">Você está dentro ou fora?</string>
+    <string name="question7">Você pode fotografar o mosquito ?</string>
+
+    <string name="answer_question_1_a">1</string>
+    <string name="answer_question_1_b">2 a 5</string>
+    <string name="answer_question_1_c">5 a 30</string>
+    <string name="answer_question_1_d">mais</string>
+
+    <string name="answer_question_2_a"> &lt; 1 cm </string>
+    <string name="answer_question_2_b">1 a 2 cm</string>
+    <string name="answer_question_2_c"> &gt; 2 cm</string>
+
+    <string name="answer_question_3_a">entre 7 e 12</string>
+    <string name="answer_question_3_b">entre 12 e 17</string>
+    <string name="answer_question_3_c">entre 17 e 22</string>
+    <string name="answer_question_3_d">entre 22 e 7</string>
+
+    <string name="answer_question_4_a">&lt; 0°C</string>
+    <string name="answer_question_4_b">&lt; 10°C</string>
+    <string name="answer_question_4_c">&lt; 20°C</string>
+    <string name="answer_question_4_d">&gt; 20°C</string>
+
+    <string name="answer_question_5_a">sim</string>
+    <string name="answer_question_5_b">não</string>
+
+    <string name="answer_question_6_a">dentro</string>
+    <string name="answer_question_6_b">fora</string>
+
+    <string name="answer_question_7_a">sim</string>
+    <string name="answer_question_7_b">não</string>
+
+    <string name="quest_return_button">Voltar</string>
+    <string name="quest_next_button">Aceitar</string>
+
+    <!-- Experience activity string-->
+    <string name="save_button">Validar amostragem</string>
+    <string name="finish_button">Terminar</string>
+
+    <!-- Identify activity string-->
+    <string name="identification_antennae">ANTENA</string>
+    <string name="identification_mouthpiece">PROBÓSCIDE</string>
+    <string name="identification_wings">ASAS</string>
+
+    <string name="text_button_antennae_1">Antenas pouco pilosas</string>
+    <string name="text_button_antennae_2">Antenas muito pilosas</string>
+    <string name="text_button_mouthpiece_1">Composta</string>
+    <string name="text_button_mouthpiece_2">Simples</string>
+    <string name="text_button_wings_1">- Não enervada \n- Asas mais courtas \n que abdomen</string>
+    <string name="text_button_wings_2">- Enervada \n- Asas mais compridas \n que abdomen</string>
+    <string name="text_error_id_button">Nenhuma das Anteriores</string>
+
+    <!-- Information activity string-->
+    <string name="text_information_all">Todos os dados coledados serão armazenados em um servidor \n
+                                    particular e não serão utilizados \n
+                                    comercialmente. Entretanto, os dados sobre  \n o mosquito
+                                    (localização e questionário)  \n
+                                    estarão disponíveis publicamente e poderão ser utilizados cientificamente.\n
+                                     \n
+       Sugestões e comentários podem ser enviados ao seguinte endreço eletrônico :\n
+        \n
+        ScienceTogetherRI@gmail.com \n
+        \n
+        Theophile Guilbaud : responsável pelo design e programação ; Camille Guilbaud :  idéia original e design do aplicativo.
+        \n \nObrigado a J.Petermann, B.Tietjen, e cada membro de seus respectivos grupos pela ajuda e apoio.
+        Este trabalho foi realizado com financiamento do Fundo Nacional Suiço.</string>
+    <string name="text_information_1">Todos os dados coledados serão armazenados em um servidor</string>
+    <string name="text_information_2">particular e não serão utilizados</string>
+    <string name="text_information_3">comercialmente. Entretanto, os dados sobre </string>
+    <string name="text_information_4">o mosquito (localização e questionário)</string>
+    <string name="text_information_5">estarão disponíveis publicamente e poderão ser utilizados cientificamente.</string>
+    <string name="text_information_7">Sugestões e comentários podem ser enviados ao seguinte endreço eletrônico :</string>
+    <string name="text_information_8">ScienceTogetherRI@gmail.com</string>
+    <string name="text_information_10">Theophile Guilbaud : responsável pelo design e programação ; Camille Guilbaud :  idéia original e design do aplicativo.</string>
+    <string name="text_information_13">Obrigado a J.Petermann, B.Tietjen, e cada membro de seus respectivos grupos pela ajuda e apoio.</string>
+    <string name="text_information_14">Este trabalho foi realizado com financiamento do Fundo Nacional Suiço.</string>
+
+</resources>
