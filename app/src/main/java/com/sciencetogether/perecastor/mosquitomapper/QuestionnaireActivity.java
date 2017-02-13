@@ -379,11 +379,11 @@ public class QuestionnaireActivity extends Activity {
         Calendar rightNow = Calendar.getInstance();
         int h = rightNow.get(Calendar.HOUR_OF_DAY);
         int y = rightNow.get(Calendar.YEAR);
-        int m = rightNow.get(Calendar.MONTH);
+        int mo = rightNow.get(Calendar.MONTH);
         String now = Integer.toString(h) + "H";
         mQuestionC.setText(now);
         sortYearChild = Integer.toString(y);
-        sortMonthChild = Integer.toString(m);
+        sortMonthChild = Integer.toString(mo);
 
         //Set Click Listener
         mButtonReturnQuest.setOnClickListener(btnQuestReturnClick);
