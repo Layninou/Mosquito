@@ -66,6 +66,8 @@ public class QuestionnaireActivity extends Activity {
     public static final String FIREBASEPICTURE = "https://mosquitofinder.firebaseio.com/";
     private Firebase mFirebaseRef;
     public String uidFirebase;
+    public String sortYearChild;
+    public String sortMonthChild;
 
     //Image Attribut
     static final int REQUEST_IMAGE_CAPTURE = 1;
@@ -132,13 +134,6 @@ public class QuestionnaireActivity extends Activity {
             Bundle extras = data.getExtras();
             Pics = (Bitmap) extras.get("data");
 
-            //get time to add on firebase
-            Calendar rightNow = Calendar.getInstance();
-            int year = rightNow.get(Calendar.YEAR);
-            int month = rightNow.get(Calendar.MONTH);
-            String yearChild = Integer.toString(year);
-            String monthChild = Integer.toString(month);
-
             //Get the country
             //ATTENTION this isn't the country by location but by name use
             String localePlace = getApplicationContext().getResources().getConfiguration().locale.getCountry();
@@ -151,7 +146,7 @@ public class QuestionnaireActivity extends Activity {
             FirebaseStorage storage = FirebaseStorage.getInstance();
             StorageReference storageRef = storage.getReferenceFromUrl("gs://mosquitofinder.appspot.com");
             StorageReference thisStorage =
-                    storageRef.child(localePlace).child(yearChild).child(monthChild).child(uidFirebase).child("mosquitoes.jpg");
+                    storageRef.child(localePlace).child(sortYearChild).child(sortMonthChild).child(uidFirebase).child("mosquitoes.jpg");
 
             //Transformation in lower quality image
             ByteArrayOutputStream baos = new ByteArrayOutputStream();
@@ -383,8 +378,12 @@ public class QuestionnaireActivity extends Activity {
         //ClockTest
         Calendar rightNow = Calendar.getInstance();
         int h = rightNow.get(Calendar.HOUR_OF_DAY);
+        int y = rightNow.get(Calendar.YEAR);
+        int m = rightNow.get(Calendar.MONTH);
         String now = Integer.toString(h) + "H";
         mQuestionC.setText(now);
+        sortYearChild = Integer.toString(y);
+        sortMonthChild = Integer.toString(m);
 
         //Set Click Listener
         mButtonReturnQuest.setOnClickListener(btnQuestReturnClick);
