@@ -12,10 +12,6 @@
     <string name="information_name">Informações</string>
     <string name="action_settings">Definições</string>
 
-    <!-- Parse code -->
-    <string name="APPLICATION_ID">OpDwJ4MEXMyg8OWQviJzyfwVwBtUZz2Rtgt2wZrl</string>
-    <string name="CLIENT_KEY">wionXRZIAVTo1I5eCDtN4MTZjYWvVJJsoB09ayeM</string>
-
     <!-- Main activity string -->
     <string name="title_up">MOSQUITO</string>
     <string name="title_down">MAPPER</string>

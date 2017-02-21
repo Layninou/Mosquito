@@ -1,2 +1,109 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources></resources>
+<resources>
+    <!-- Activity name -->
+    <string name="app_name">MosquitoMapper</string>
+    <string name="localise_name">Localisacion</string>
+    <string name="questionnaire_name">Cuestionario</string>
+    <string name="experience_name">Experimento</string>
+    <string name="experience_identify_name">Experience Identify</string>
+    <string name="identification_name_1">Identification Antennes</string>
+    <string name="identification_name_2">Identification Bouche</string>
+    <string name="identification_name_3">Identification Ailes</string>
+    <string name="information_name">Informations</string>
+    <string name="action_settings">Settings</string>
+
+    <!-- Main activity string -->
+    <string name="title_up">MOSQUITO</string>
+    <string name="title_down">MAPPER</string>
+    <string name="localise">Localisacion Mosquito</string>
+    <string name="identify">Identificar Mosquito</string>
+    <string name="information">Informaciones</string>
+
+    <!-- Localise activity string -->
+    <string name="latitude_label">Latitud</string>
+    <string name="longitude_label">Longitud</string>
+    <string name="loc_return_button">Volver</string>
+    <string name="loc_next_button">Siguiente</string>
+
+    <!-- Questionnaire activity string-->
+    <string name="question1">Cuantos mosquitos hay?</string>
+    <string name="question2">Tamaño del mosquito :</string>
+    <string name="question3">Que hora es?</string>
+    <string name="question4">Cual es la temperatura?</string>
+    <string name="question5">Hay agua a su arededor?</string>
+    <string name="question6">Usted esta en el interior o en el exterior ?</string>
+    <string name="question7">Usted puede cojer en photo el mosquito ?</string>
+
+    <string name="answer_question_1_a">1</string>
+    <string name="answer_question_1_b">2 a 5</string>
+    <string name="answer_question_1_c">5 a 30</string>
+    <string name="answer_question_1_d">mas</string>
+
+    <string name="answer_question_2_a"> &lt; 1 cm </string>
+    <string name="answer_question_2_b">1 a 2 cm</string>
+    <string name="answer_question_2_c"> &gt; 2 cm</string>
+
+    <string name="answer_question_3_a">entre 7 et 12</string>
+    <string name="answer_question_3_b">entre 12 et 17</string>
+    <string name="answer_question_3_c">entre 17 et 22</string>
+    <string name="answer_question_3_d">entre 22 et 7</string>
+
+    <string name="answer_question_4_a">&lt; 0°C</string>
+    <string name="answer_question_4_b">&lt; 10°C</string>
+    <string name="answer_question_4_c">&lt; 20°C</string>
+    <string name="answer_question_4_d">&gt; 20°C</string>
+
+    <string name="answer_question_5_a">si</string>
+    <string name="answer_question_5_b">no</string>
+
+    <string name="answer_question_6_a">interior</string>
+    <string name="answer_question_6_b">exterior</string>
+
+    <string name="answer_question_7_a">si</string>
+    <string name="answer_question_7_b">no</string>
+
+    <string name="quest_return_button">Volver</string>
+    <string name="quest_next_button">Siguiente</string>
+
+    <!-- Experience activity string-->
+    <string name="save_button"> Acabar el experimento</string>
+    <string name="finish_button">Fin</string>
+
+    <!-- Identify activity string-->
+    <string name="identification_antennae">ANTENAS</string>
+    <string name="identification_mouthpiece">BOCA</string>
+    <string name="identification_wings">BASTIDORES</string>
+
+    <string name="text_button_antennae_1">Pocas plomas</string>
+    <string name="text_button_antennae_2"> Muchas plomas </string>
+    <string name="text_button_mouthpiece_1">Muchas y grandes</string>
+    <string name="text_button_mouthpiece_2">Una y grande</string>
+    <string name="text_button_wings_1">- No hay venas \n- Bastidores mas\n cortas que\n el abdomen</string>
+    <string name="text_button_wings_2">- Venas \n- Bastidores mas\n grandes que\n el abdomen</string>
+    <string name="text_error_id_button">Nada de esto</string>
+
+    <!-- Information activity string-->
+    <string name="text_information_all">Todos los datos estan colectados y guardados en un base de datos\n
+                                    privados y no estaran usados a un fin\n
+                                    commercial. Por lo tanto, los datos suminitros\n
+                                    (localisacion y respuestas al quizz) \n
+                                    seran accesibles para todis y, esperamos, utilisarlos a un fin cientifico.\n
+                                     \n
+        Puede enviarmnos vuestros comentarios y sugerencias a la direccion:\n
+        \n
+        ScienceTogetherRI@gmail.com \n
+        \n
+        Theophile Guilbaud en la programacion y la concepcion; Camille Guilbaud para la idea original y la concepcion.
+        \n \nMuchas gracias a J.Petermann, B.Tietjen, y a los miembros de los grupos respectivos para su apoyo.
+        Este trabajo ha sido posible gracias al fondo nacional de suiza.</string>
+    <string name="text_information_1">Todos los datos estan colectados y guardados en un base de datos</string>
+    <string name="text_information_2">privados y no estaran usados a un fin</string>
+    <string name="text_information_3">commercial. Por lo tanto, los datos suminitros</string>
+    <string name="text_information_4">(localisacion y respuestas al quizz)</string>
+    <string name="text_information_5">seran accesibles para todis y, esperamos, utilisarlos a un fin cientifico.</string>
+    <string name="text_information_7">Puede enviarmnos vuestros comentarios y sugerencias a la direccion:</string>
+    <string name="text_information_8">ScienceTogetherRI@gmail.com</string>
+    <string name="text_information_10">Theophile Guilbaud en la programacion y la concepcion; Camille Guilbaud para la idea original y la concepcion.</string>
+    <string name="text_information_13">Muchas gracias a J.Petermann, B.Tietjen, y a los miembros de los grupos respectivos para su apoyo.</string>
+    <string name="text_information_14">Este trabajo ha sido posible gracias al fondo nacional de suiza.</string>
+</resources>
