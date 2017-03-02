@@ -379,7 +379,7 @@ public class QuestionnaireActivity extends Activity {
         Calendar rightNow = Calendar.getInstance();
         int h = rightNow.get(Calendar.HOUR_OF_DAY);
         int y = rightNow.get(Calendar.YEAR);
-        int mo = rightNow.get(Calendar.MONTH);
+        int mo = rightNow.get(Calendar.MONTH) + 1;
         String now = Integer.toString(h) + "H";
         mQuestionC.setText(now);
         sortYearChild = Integer.toString(y);
